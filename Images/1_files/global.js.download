@@ -1,0 +1,43 @@
+/**
+ * @file
+ * Global utilities.
+ *
+ */
+(function ($, Drupal) {
+
+  'use strict';
+
+  Drupal.behaviors.maintheme = {
+    attach: function (context, settings) {
+        
+      $(".simplenews-subscriber-form input").attr("placeholder", "Enter E-mail Address");
+      
+      $(".nav-link--user-register, .page-user-register h1.title").text("Register for FREE");
+      
+      $(".field-add-more-submit input").attr("placeholder", "Add Another Name");
+      
+      $(".user-register-form .form-actions .form-submit").text("Register");
+      
+      $(".nav-link--user-login, .page-user-login h1, .user-login-form .form-actions .form-submit").text("Login");
+      
+      $('table').addClass('tablefield table table-hover table-striped');
+      $('table').wrap('<div class="table-responsive"></div>');
+      
+      $('.item-list').each(function(){
+        $(this).find('h3').click(function(){
+         $(this).toggleClass('toggled');
+         $(this).parent().toggleClass('toggledSet');
+      });
+      });
+      
+      
+      $('#block-indexationslider .content').addClass('carousel slide');
+      $('.field--name-field-banner-image').addClass('carousel-inner');
+      $('.field--name-field-banner-image .field__item').addClass('carousel-item');
+      $('.field--name-field-banner-image .field__item:first-child').addClass('active');
+      
+
+    }
+  };
+
+})(jQuery, Drupal);
