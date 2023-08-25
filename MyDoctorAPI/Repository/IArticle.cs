@@ -9,6 +9,8 @@ namespace MyDoctorAPI.Repository
         public List<Article> GetMarried();
         public List<Article> GetPregenant();
         public List<Article> GetMother();
+        public List<Article> GetNotApproved();
+        public void ApproveArticles(int id);
 
 
     }

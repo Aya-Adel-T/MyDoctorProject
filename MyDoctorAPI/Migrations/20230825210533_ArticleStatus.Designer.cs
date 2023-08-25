@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyDoctorAPI.Data;
 
@@ -11,9 +12,11 @@ using MyDoctorAPI.Data;
 namespace MyDoctorAPI.Migrations
 {
     [DbContext(typeof(MyDoctorAPIContext))]
-    partial class MyDoctorAPIContextModelSnapshot : ModelSnapshot
+    [Migration("20230825210533_ArticleStatus")]
+    partial class ArticleStatus
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

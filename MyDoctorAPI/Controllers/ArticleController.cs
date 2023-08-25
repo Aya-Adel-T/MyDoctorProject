@@ -20,6 +20,11 @@ namespace MyDoctorAPI.Controllers
         {
             return ArticleRepo.GetAll();
         }
+        [HttpGet("GetNotApprovedArticles")]
+        public ActionResult<List<Article>> GetNotApprovedArticles()
+        {
+            return ArticleRepo.GetNotApproved();
+        }
         [HttpGet("GetSingle")]
         public ActionResult<List<Article>> GetSingle()
         {
@@ -61,6 +66,16 @@ namespace MyDoctorAPI.Controllers
             {
                 ArticleRepo.Update(article);
                 return Ok(article);
+            }
+            return NotFound();
+        }
+        [HttpPut("ApproveArticles")]
+        public ActionResult ApproveArticles(int Id)
+        {
+            if (Id != 0)
+            {
+                ArticleRepo.ApproveArticles(Id);
+                return Ok();
             }
             return NotFound();
         }
