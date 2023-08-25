@@ -47,6 +47,22 @@ namespace MyDoctorAPI.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "2fbb0d83-ce7c-4290-a4dc-ebb7c20d2f90",
+                            ConcurrencyStamp = "1",
+                            Name = "Admin",
+                            NormalizedName = "Admin"
+                        },
+                        new
+                        {
+                            Id = "81a2a9c9-c916-4818-91af-2f779597d233",
+                            ConcurrencyStamp = "3",
+                            Name = "Customer",
+                            NormalizedName = "Writer"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -233,6 +249,10 @@ namespace MyDoctorAPI.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ArticleImg")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ArticleType")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreationDate")

@@ -20,6 +20,28 @@ namespace MyDoctorAPI.Controllers
         {
             return ArticleRepo.GetAll();
         }
+        [HttpGet("GetSingle")]
+        public ActionResult<List<Article>> GetSingle()
+        {
+            return ArticleRepo.GetSingle();
+        }
+        [HttpGet("GetMarried")]
+        public ActionResult<List<Article>> GetMarried()
+        {
+            return ArticleRepo.GetMarried();
+        }
+        [HttpGet("GetPregnant")]
+        public ActionResult<List<Article>> GetPregnant()
+        {
+            return ArticleRepo.GetPregenant();
+        }
+        [HttpGet("GetMother")]
+        public ActionResult<List<Article>> GetMother()
+        {
+            return ArticleRepo.GetMother();
+        }
+
+
         [HttpGet("{id}")]
         public ActionResult<Article> GetById(int id)
         {

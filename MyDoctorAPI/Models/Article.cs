@@ -4,8 +4,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MyDoctorAPI.Models
 {
+    public enum ArticleType
+    {
+        Single , Pregnant , Married , Mother
+
+    }
     public class Article
     {
+       
 
         [Key]
         public int Id { get; set; }
@@ -16,6 +22,9 @@ namespace MyDoctorAPI.Models
         public virtual Writer? Writer { get; set; }
         [Required]
         public string OurArticle { get; set; }
+        [Required]
+
+        public  string ArticleType { get; set; }
         public string? ArticleImg { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime PublicationDate { get; set; } 

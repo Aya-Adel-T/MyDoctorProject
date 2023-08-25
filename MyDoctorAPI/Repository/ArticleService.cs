@@ -102,5 +102,44 @@ namespace MyDoctorAPI.Repository
             return ArticleData;
         }
 
+        public List<Article> GetSingle()
+        {
+            List<Article> ArticlesList = new();
+            using (var customContext = Context.CreateDbContext())
+            {
+                ArticlesList = customContext.Articles.Where(s => s.ArticleType == "Single").ToList(); 
+            }
+            return ArticlesList;
+    }
+
+        public List<Article> GetMarried()
+        {
+            List<Article> ArticlesList = new();
+            using (var customContext = Context.CreateDbContext())
+            {
+                ArticlesList = customContext.Articles.Where(s => s.ArticleType == "Married").ToList();
+            }
+            return ArticlesList;
+        }
+
+        public List<Article> GetPregenant()
+        {
+            List<Article> ArticlesList = new();
+            using (var customContext = Context.CreateDbContext())
+            {
+                ArticlesList = customContext.Articles.Where(s => s.ArticleType == "Pregnant").ToList();
+            }
+            return ArticlesList;
+        }
+
+        public List<Article> GetMother()
+        {
+            List<Article> ArticlesList = new();
+            using (var customContext = Context.CreateDbContext())
+            {
+                ArticlesList = customContext.Articles.Where(s => s.ArticleType == "Mother").ToList();
+            }
+            return ArticlesList;
+        }
     }
 }
