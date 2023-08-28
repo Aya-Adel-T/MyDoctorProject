@@ -161,5 +161,25 @@ namespace MyDoctorAPI.Repository
             }
                     
         }
+
+        public List<Article> GetNews()
+        {
+            List<Article> ArticlesList = new();
+            using (var customContext = Context.CreateDbContext())
+            {
+                ArticlesList = customContext.Articles.Where(s => (s.ArticleType == "News") && (s.Status == "Approved")).ToList(); ;
+            }
+            return ArticlesList;
+        }
+
+        public List<Article> GetNotApprovedNews()
+        {
+            List<Article> ArticlesList = new();
+            using (var customContext = Context.CreateDbContext())
+            {
+                ArticlesList = customContext.Articles.Where(s => (s.ArticleType == "News") && (s.Status == "NotApproved")).ToList(); ;
+            }
+            return ArticlesList;
+        }
     }
 }

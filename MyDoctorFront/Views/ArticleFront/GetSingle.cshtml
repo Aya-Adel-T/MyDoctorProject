@@ -1,0 +1,205 @@
+﻿@model IEnumerable<MyDoctorAPI.Models.Article>
+
+@{
+    //Layout = "~/Views/Shared/_LayoutCustom.cshtml";
+
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+
+  <style media="screen">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+        background: #0c7788;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .content {
+        width: 700px;
+        margin: 50px auto 0;
+        background: #fff;
+        padding: 30px 40px;
+        border-radius: 3px;
+        box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+    }
+        .content .wrapper ul {
+/*            height: 120px;
+*/            overflow: hidden;
+            padding-left: 15px;
+        }
+
+    .content .wrapper .title {
+        font-weight: 700;
+        margin-bottom: 15px;
+        font-size: 18px;
+        text-align: center;
+    }
+
+           .content .wrapper ul.active {
+                height: auto;
+            text-align: right;
+        }
+
+           .content .wrapper ul li {
+                margin-bottom: 5px;
+                list-style: none;
+                position: relative;
+            }
+
+               .content .wrapper ul li:before {
+                    content: "";
+                    position: absolute;
+                    top: 8px;
+                    left: -12px;
+                    width: 5px;
+                    height: 5px;
+                    border-radius: 50%;
+                    background: #bfbfbf;
+                }
+
+       .content  .wrapper .toggle_btn {
+            margin-top: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            cursor: pointer;
+            margin-left: 70%;
+            font-size: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            background: rgb(204, 12, 79);
+        }
+
+           .content .wrapper .toggle_btn.active .fas {
+                transform: rotate(180deg);
+            }
+    .hidden {
+        display: none;
+        text-align:right;
+    }
+
+    .readmore {
+        margin: 0 5px;
+        text-align: right;
+    }
+  </style>
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<br /> <br/> <br/><br /> <br/> <br/>
+
+
+@foreach (var item in Model)
+{
+    <div class="content"> 
+<div class="wrapper">
+    <div class="title">
+          @Html.DisplayFor(modelItem => item.Title)
+    </div>
+        <ul class="hamada">
+          @Html.DisplayFor(modelItem => item.OurArticle)         
+    </ul>
+    <img src="~/assets/images/1.jpg" > 
+@*    <div class="toggle_btn">
+        <span class="toggle_text">قرأة المزيد</span> <span class="arrow">
+            <i class="fas fa-angle-down"></i>
+        </span>
+    </div>*@
+</div>
+    </div>
+}
+
+
+@*@foreach (var item in Model)
+{
+<div class="content">
+    <div class="wrapper">
+     <div class="title">
+    @Html.DisplayFor(modelItem => item.Title)
+    </div>
+    <ul>
+    @Html.DisplayFor(modelItem => item.OurArticle)
+    </ul>
+    </div>  
+</div>
+    <br /> <br />
+  }*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    //$(".toggle_btn").click(function () {
+    //    $(this).toggleClass("active");
+    //    $(".wrapper ul").toggleClass("active");
+
+    //    if ($(".toggle_btn").hasClass("active")) {
+    //        $(".toggle_text").text("قرأة أقل");
+    //    }
+    //    else {
+    //        $(".toggle_text").text("قرأة المزيد");
+    //    }
+    //});
+
+
+
+
+    // deh el function elly sh8ala seperate
+
+    $(function () {
+        var maxL = 500;
+        $('.hamada').each(function () {
+            var text = $(this).text();
+            if (text.length > maxL) {
+                var begin = text.substr(0, maxL),
+                    end = text.substr(maxL);
+                $(this).html(begin)
+                    .append($('<a class="readmore"/>').attr('href', '#').html('  قرأة المزيد  '))
+                    .append($('<div class="hidden" />').html(end));
+            }
+        });
+        $(document).on('click', '.readmore', function () {
+            // $(this).next('.readmore').fadeOut("400");
+            $(this).next('.hidden').slideToggle(400);
+        })
+    })
+</script>
+
+
+
+
+
+<!-------------------------->
+@*<div class="container"> 
+<div class="card shadow-lg">
+    <div class="hamada">
+        <img src="{{Property.img}}" class="card-img-top" alt="fdg">
+        <ul style="text-align: center;" class="list-inline member-icon animate">
+            <li class="list-inline-item">
+                <button class="btn btn-primary"> <i class="fa-solid fa-pen-to-square"></i></button>
+            </li>
+            <li class="list-inline-item">
+                <button class="btn btn-primary"> <i class="fa-solid fa-address-book"></i></button>
+            </li>
+        </ul>
+        <div class="card-body" style="height: 180px;">
+            <h5 class="card-title">{{Property.Name}}</h5>
+            <p class="card-text">{{Property.Type}}</p>
+            <p class="card-text">{{Property.hsdf}}</p>
+            <a href="/com" class="btn btn-primary">{{Property.Price}}</a>
+        </div>
+    </div>
+</div>
+</div>*@

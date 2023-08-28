@@ -6,7 +6,7 @@ namespace MyDoctorAPI.Models
 {
     public enum ArticleType
     {
-        Single , Pregnant , Married , Mother
+        Single , Pregnant , Married , Mother , News
 
     }
     public class Article

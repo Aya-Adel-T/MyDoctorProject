@@ -45,7 +45,18 @@ namespace MyDoctorAPI.Controllers
         {
             return ArticleRepo.GetMother();
         }
+        [HttpGet("GetApprovedNews")]
 
+        public ActionResult<List<Article>> GetApprovedNews()
+        {
+            return ArticleRepo.GetNews();
+        }
+        [HttpGet("GetNotApprovedNews")]
+
+        public ActionResult<List<Article>> GetNotApprovedNews()
+        {
+            return ArticleRepo.GetNotApprovedNews();
+        }
 
         [HttpGet("{id}")]
         public ActionResult<Article> GetById(int id)
