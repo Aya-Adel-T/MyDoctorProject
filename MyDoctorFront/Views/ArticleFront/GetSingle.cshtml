@@ -5,112 +5,286 @@
 
 }
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
-
-  <style media="screen">
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Montserrat', sans-serif;
-    }
-
-    body {
-        background: #0c7788;
-        font-size: 18px;
-        line-height: 22px;
-    }
-
-    .content {
-        width: 700px;
-        margin: 50px auto 0;
-        background: #fff;
-        padding: 30px 40px;
-        border-radius: 3px;
-        box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
-    }
-        .content .wrapper ul {
-/*            height: 120px;
-*/            overflow: hidden;
-            padding-left: 15px;
-        }
-
-    .content .wrapper .title {
-        font-weight: 700;
-        margin-bottom: 15px;
-        font-size: 18px;
-        text-align: center;
-    }
-
-           .content .wrapper ul.active {
-                height: auto;
-            text-align: right;
-        }
-
-           .content .wrapper ul li {
-                margin-bottom: 5px;
-                list-style: none;
-                position: relative;
-            }
-
-               .content .wrapper ul li:before {
-                    content: "";
-                    position: absolute;
-                    top: 8px;
-                    left: -12px;
-                    width: 5px;
-                    height: 5px;
-                    border-radius: 50%;
-                    background: #bfbfbf;
-                }
-
-       .content  .wrapper .toggle_btn {
-            margin-top: 15px;
-            font-weight: 700;
-            color: #ffffff;
-            cursor: pointer;
-            margin-left: 70%;
-            font-size: 15px;
-            padding: 10px;
-            border-radius: 5px;
-            background: rgb(204, 12, 79);
-        }
-
-           .content .wrapper .toggle_btn.active .fas {
-                transform: rotate(180deg);
-            }
-    .hidden {
-        display: none;
-        text-align:right;
-    }
-
-    .readmore {
-        margin: 0 5px;
-        text-align: right;
-    }
-  </style>
 <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 <br /> <br/> <br/><br /> <br/> <br/>
+<style>
+   
+    img {
+        height: 150px;
+    }
+
+    .card {
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+        transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+        padding: 14px;
+        cursor: pointer;
+    }
+
+        .card:hover {
+            transform: scale(1.11);
+            box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+        }
+
+        .card img {
+            transform: scale(1);
+            box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+        }
+
+        .card:hover img {
+            opacity: 0.8;
+        }
+
+    .hamada:hover .member-icon {
+        margin-top: 5px;
+    }
+
+    .member-icon {
+        margin-top: -40px;
+    }
+
+    .animate {
+        transition: all 0.3s ease-in-out;
+    }
+
+</style>
+
+<h1 style="text-align:center">  أهم المواضيع </h1>
 
 
-@foreach (var item in Model)
-{
-    <div class="content"> 
-<div class="wrapper">
+  <div class="row">
+        @foreach (var item in Model)
+            {
+    <div class="col-sm-4 p-3 " >
+        <div class="card shadow-lg">
+            <div class="hamada">
+                    <img src="~/assets/images/Articles/Married/sperm.webp" class="card-img-top" alt="fdg">
+                 @*   <ul style="text-align: center;" class="list-inline member-icon animate">
+                        <li class="list-inline-item">
+                            <button class="btn btn-primary"> <i class="fa-solid fa-pen-to-square"></i></button>
+                        </li>
+                        <li class="list-inline-item">
+                            <button class="btn btn-primary"> <i class="fa-solid fa-address-book"></i></button>
+                        </li>
+                    </ul>*@
+                    <div class="card-body" style="height: 180px;">
+                        <h5 class="card-title">  @Html.DisplayFor(modelItem => item.Title)</h5>
+                        <h6>  @Html.DisplayFor(modelItem => item.PublicationDate)</h6>
+                        <p class="card-text" style=" height:60px;line-height:1.2em;overflow:hidden">
+                            @Html.DisplayFor(modelItem => item.OurArticle)
+                        </p>
+                        <a href="/com" class="btn btn-primary">أقرئي المزيد</a>
+                </div>
+          </div>
+     </div>
+     </div>
+
+     }
+  </div>
+
+
+
+@*
+<div class="row">
+      
+    <div class="card shadow-lg">
+      
+    <div class="hamada">
+            @foreach (var item in Model)
+            {
+        <img src="~/assets/images/Articles/Married/sperm.webp" class="card-img-top" alt="fdg">
+        <ul style="text-align: center;" class="list-inline member-icon animate">
+            <li class="list-inline-item">
+                <button class="btn btn-primary"> <i class="fa-solid fa-pen-to-square"></i></button>
+            </li>
+            <li class="list-inline-item">
+                <button class="btn btn-primary"> <i class="fa-solid fa-address-book"></i></button>
+            </li>
+        </ul>
+        <div class="card-body" style="height: 180px;">
+            <h5 class="card-title">  @Html.DisplayFor(modelItem => item.Title)</h5>
+            <h5>  @Html.DisplayFor(modelItem => item.PublicationDate)</h5>
+              <p class="card-text" style=" text-overflow: ellipsis; white-space: nowrap;
+                   overflow: hidden;">
+                                        @Html.DisplayFor(modelItem => item.OurArticle)
+                                    </p>
+            <p class="card-text">{{Property.hsdf}}</p>
+            <a href="/com" class="btn btn-primary">أقرئي المزيد</a>
+        </div>
+        }
+    </div>
+    
+         </div>
+
+    
+</div>*@
+
+
+
+
+
+@*<section class="wrapper">
+    <div class="container-fostrap">
+        <h1 style="text-align:center">  أهم المواضيع </h1>
+        <div class="content">
+            <div class="container style=" direction:rtl"">
+                <div class="row">
+
+                     @foreach (var item in Model)
+        {
+                    <div class="col-xs-12 col-sm-4">
+                            <div class="card" style="direction:rtl">
+                                <a  class="img-card" href="">
+                                    <img style="width:400px"  src="~/assets/images/Articles/Married/sperm.webp" />
+                            </a>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <a href="">
+                                        @Html.DisplayFor(modelItem => item.Title)
+                                    </a>
+                                </h4>
+                                    <h6 class="card-title">
+                                        @Html.DisplayFor(modelItem => item.PublicationDate)
+                                    </h6>
+                                    <p class="card-text" style=" text-overflow: ellipsis; white-space: nowrap;
+                   overflow: hidden;">
+                                        @Html.DisplayFor(modelItem => item.OurArticle)
+                                    </p>
+                            </div>
+                            <div class="card-read-more">
+                                <a href="" class="btn btn-link btn-block">
+                                    أقرائي المزيد
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                   }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@
+
+
+
+@*
+ @foreach (var item in Model)
+        {
+<div class="container">
+    <div class="card-group vgr-cards">
+       
+        <div class="card">
+            <div class="card-img-body">
+                    <img class="card-img" style="width:300px" src="~/assets/images/Articles/Married/sperm.webp" alt="Card image cap">
+            </div>
+            <div class="card-body" style="direction:rtl">
+                    <h4 class="card-title">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </h4>
+                    <h6 class="card-title">
+                        @Html.DisplayFor(modelItem => item.PublicationDate)
+                    </h6>
+                    <p class="card-text" style="width: 50%; text-overflow: ellipsis; white-space: nowrap;
+                   overflow: hidden;" >
+                        @Html.DisplayFor(modelItem => item.OurArticle)
+                </p>
+                <a href="#" class="btn btn-outline-primary">أقرائي المزيد</a>
+            </div>
+        </div>
+        
+    </div>
+</div>
+}*@
+@*    <div class="content"> 
+<div class="wrapper col-6">
     <div class="title">
           @Html.DisplayFor(modelItem => item.Title)
     </div>
+            <div class="title">
+                @Html.DisplayFor(modelItem => item.PublicationDate)
+            </div>
+    <div class="col-5"> 
+            <img src="~/assets/images/Articles/Married/sperm.webp">
+     </div>
         <ul class="hamada">
           @Html.DisplayFor(modelItem => item.OurArticle)         
     </ul>
-    <img src="~/assets/images/1.jpg" > 
-@*    <div class="toggle_btn">
+    <div class="toggle_btn">
         <span class="toggle_text">قرأة المزيد</span> <span class="arrow">
             <i class="fas fa-angle-down"></i>
         </span>
-    </div>*@
-</div>
     </div>
-}
+</div>
+    </div>*@
+
+
+@*
+@foreach (var item in Model)
+{
+<div class="card shadow-lg">
+    <div class="hamada">
+            <img src="~/assets/images/Articles/Married/sperm.webp" class="card-img-top" alt="fdg">
+        <ul style="text-align: center;" class="list-inline member-icon animate">
+            <li class="list-inline-item">
+                <button class="btn btn-primary"> <i class="fa-solid fa-pen-to-square"></i></button>
+            </li>
+            <li class="list-inline-item">
+                <button class="btn btn-primary"> <i class="fa-solid fa-address-book"></i></button>
+            </li>
+        </ul>
+        <div class="card-body" style="height: 180px;">
+                <h5 class="card-title"> @Html.DisplayFor(modelItem => item.Title)</h5>
+                <p class="card-text"> @Html.DisplayFor(modelItem => item.OurArticle) </p>
+            <p class="card-text">{{Property.hsdf}}</p>
+            <a href="/com" class="btn btn-primary">{{Property.Price}}</a>
+        </div>
+    </div>
+    </div>
+    }*@
+
+
+
+
+@*<!-- ======= Testimonials Section ======= -->
+<section id="News" class="testimonials">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Lastest News</h2>
+            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
+
+
+                @foreach (var item in Model)
+                {
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <p class="Limit">
+                                <i class="bx bxs-quote-alt-left quote-icon-left" ></i>   @Html.DisplayFor(modelItem => item.OurArticle)
+
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                            <img src="~/assets/images/Articles/Married/sperm.webp" class="" alt="">
+                            <h3>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </h3>
+                            <h4>@Html.DisplayFor(modelItem => item.PublicationDate)</h4>
+                        </div>
+                    </div>
+
+                    <!-- End testimonial item -->
+                }
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+    </div>
+</section><!-- End Testimonials Section -->*@
+
 
 
 @*@foreach (var item in Model)
@@ -130,6 +304,31 @@
 
 
 
+
+
+
+<!-------------------------->
+@*<div class="container"> 
+<div class="card shadow-lg">
+    <div class="hamada">
+        <img src="{{Property.img}}" class="card-img-top" alt="fdg">
+        <ul style="text-align: center;" class="list-inline member-icon animate">
+            <li class="list-inline-item">
+                <button class="btn btn-primary"> <i class="fa-solid fa-pen-to-square"></i></button>
+            </li>
+            <li class="list-inline-item">
+                <button class="btn btn-primary"> <i class="fa-solid fa-address-book"></i></button>
+            </li>
+        </ul>
+        <div class="card-body" style="height: 180px;">
+            <h5 class="card-title">{{Property.Name}}</h5>
+            <p class="card-text">{{Property.Type}}</p>
+            <p class="card-text">{{Property.hsdf}}</p>
+            <a href="/com" class="btn btn-primary">{{Property.Price}}</a>
+        </div>
+    </div>
+</div>
+</div>
 
 
 
@@ -180,26 +379,4 @@
 
 
 
-
-<!-------------------------->
-@*<div class="container"> 
-<div class="card shadow-lg">
-    <div class="hamada">
-        <img src="{{Property.img}}" class="card-img-top" alt="fdg">
-        <ul style="text-align: center;" class="list-inline member-icon animate">
-            <li class="list-inline-item">
-                <button class="btn btn-primary"> <i class="fa-solid fa-pen-to-square"></i></button>
-            </li>
-            <li class="list-inline-item">
-                <button class="btn btn-primary"> <i class="fa-solid fa-address-book"></i></button>
-            </li>
-        </ul>
-        <div class="card-body" style="height: 180px;">
-            <h5 class="card-title">{{Property.Name}}</h5>
-            <p class="card-text">{{Property.Type}}</p>
-            <p class="card-text">{{Property.hsdf}}</p>
-            <a href="/com" class="btn btn-primary">{{Property.Price}}</a>
-        </div>
-    </div>
-</div>
-</div>*@
+*@   

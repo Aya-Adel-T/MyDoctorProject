@@ -38,4 +38,8 @@
     <ProjectReference Include="..\MyDoctorAPI\MyDoctorAPI.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\assets\images\Articles\Single\" />
+  </ItemGroup>
+
 </Project>

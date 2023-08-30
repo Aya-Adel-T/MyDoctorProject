@@ -28,7 +28,7 @@ namespace MyDoctorAPI.Models
         public string Status { get; set; } = "NotApproved";
         public string? ArticleImg { get; set; }
         [DataType(DataType.DateTime)]
-        public DateTime PublicationDate { get; set; } 
+        public DateTime PublicationDate { get; set; } = DateTime.Now;
         [DataType(DataType.DateTime)]
         public DateTime CreationDate { get; set; }
         [ForeignKey(nameof(IdentityUser))]
