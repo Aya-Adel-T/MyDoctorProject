@@ -12,6 +12,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
+  /*direction:rtl*/
 }
 
 a {
@@ -1166,8 +1167,8 @@ section {
 }
 
 .testimonials .testimonial-item .testimonial-img {
-  width: 90px;
-  border-radius: 50%;
+  width: 290px;
+  border-radius: 20%;
   margin: -40px 0 0 40px;
   position: relative;
   z-index: 2;
@@ -1798,3 +1799,6 @@ section {
   text-align: center;
   font-size: 13px;
 }
+
+
+

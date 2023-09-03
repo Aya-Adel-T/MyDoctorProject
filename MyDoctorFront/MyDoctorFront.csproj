@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Views\paypal\Index.cshtml" />
+    <None Include="Views\paypal\Success.cshtml" />
     <None Include="wwwroot\assets\config.rb" />
     <None Include="wwwroot\assets\css\bootstrap.css.map" />
     <None Include="wwwroot\assets\fonts\fontawesome-webfont.svg" />
@@ -32,6 +34,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.9" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="PayPal" Version="1.9.1" />
+    <PackageReference Include="PayPalCoreSDK" Version="1.7.1" />
   </ItemGroup>
 
   <ItemGroup>

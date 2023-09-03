@@ -1,0 +1,59 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h1 style="text-align:center"> من هنا يمكنك الاشتراك في الدورة الخاصة بنا </h1>
+<div style="margin-left:40%">
+    <a style="background-color:#F2BA36;border-radius:25px;border:none;text-align:center;padding-left:80px;padding-right:80px" class="btn btn-primary" href="/Payment/PaymentWithPaypal">
+        <span style="color:black">
+            Pay with
+
+        </span><span style="font-size:20px;color:darkblue;font-weight:bold"> Pay</span><span style="color:#46A7B6;font-weight:bold">Pal</span>
+    </a>
+</div>
+
+<!-- Set up a container element for the button -->
+<div id="paypal-button-container" style="max-width:300px;"></div>
+
+<!-- Include the PayPal JavaScript SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=AROU8fv8SaOHcJc3nMnl_8WlqA801mkUmh8jaCPtok93sP51J2hIy00UYogd2ER9kZv5g9dEakCRflqf&currency=USD&disable-funding=card&intent=authorize"></script>
+
+<script>
+    // Render the PayPal button into #paypal-button-container
+    paypal.Buttons({
+
+        style: {
+            layout: 'vertical',
+            color: 'gold',
+            shape: 'pill',
+            label: 'pay',
+        }
+
+    }).render('#paypal-button-container');
+</script>
+
+
+
+<a class="btn btn-primary" href="/Home/PaymentWithPaypal">Pay Now</a>
+
+<div style="margin-left:40%">
+    <a style="background-color:#F2BA36;border-radius:25px;border:none;text-align:center;padding-left:80px;padding-right:80px" class="btn btn-primary" href="/paypal/Index">
+        <span style="color:black">
+            Pay with
+
+        </span><span style="font-size:20px;color:darkblue;font-weight:bold"> Pay</span><span style="color:#46A7B6;font-weight:bold">Pal</span>
+    </a>
+</div>
+
+<div class="text-center">
+    <div id="paypal-button-container"></div>
+</div>
