@@ -19,9 +19,60 @@ namespace PaypalCheckoutExample.Controllers
 
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> Order(CancellationToken cancellationToken)
+        {
+            try
+            {
+                // set the transaction price and currency
+                var price = "1.00";
+                var currency = "USD";
+
+                // "reference" is the transaction key
+                var reference = "INV001";
+
+                var response = await _paypalClient.CreateOrder(price, currency, reference);
+
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+                var error = new
+                {
+                    e.GetBaseException().Message
+                };
+
+                return BadRequest(error);
+            }
+        }
+        [HttpPost]
+        public async Task<IActionResult> Order1(CancellationToken cancellationToken)
+        {
+            try
+            {
+                // set the transaction price and currency
+                var price = "50.00";
+                var currency = "USD";
+
+                // "reference" is the transaction key
+                var reference = "INV001";
+
+                var response = await _paypalClient.CreateOrder(price, currency, reference);
+
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+                var error = new
+                {
+                    e.GetBaseException().Message
+                };
+
+                return BadRequest(error);
+            }
+        }
+        [HttpPost]
+        public async Task<IActionResult> Orderconsultant(CancellationToken cancellationToken)
         {
             try
             {
@@ -53,7 +104,7 @@ namespace PaypalCheckoutExample.Controllers
             {
                 var response = await _paypalClient.CaptureOrder(orderId);
 
-                var reference = 1;
+                var reference = "INV001";
 
                 // Put your logic to save the transaction here
                 // You can use the "reference" variable as a transaction key
@@ -73,6 +124,14 @@ namespace PaypalCheckoutExample.Controllers
 
         public IActionResult Success()
         {
+            return View();
+        }
+
+        public IActionResult Index1()
+        {
+            // ViewBag.ClientId is used to get the Paypal Checkout javascript SDK
+            ViewBag.ClientId = _paypalClient.ClientId;
+
             return View();
         }
     }

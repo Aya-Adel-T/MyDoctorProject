@@ -10,9 +10,9 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
-  color: #444444;
-  /*direction:rtl*/
+    font-family:  'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+    color: #444444;
+    /*direction:rtl*/
 }
 
 a {
@@ -31,7 +31,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Roboto", sans-serif;
+  font-family: Andalus
 }
 
 /*--------------------------------------------------------------
@@ -158,7 +158,7 @@ h6 {
 }
 
 #header .logo {
-  font-size: 28px;
+  font-size: 35px;
   margin: 0;
   padding: 0;
   line-height: 1;
@@ -232,7 +232,7 @@ h6 {
   justify-content: space-between;
   padding: 10px 0 10px 30px;
   font-family: "Roboto", sans-serif;
-  font-size: 13px;
+  font-size: 20px;
   color: #626262;
   white-space: nowrap;
   transition: 0.3s;
@@ -280,7 +280,7 @@ h6 {
 }
 
 .navbar .dropdown ul a i {
-  font-size: 12px;
+  font-size: 18px;
 }
 
 .navbar .dropdown ul a:hover,
@@ -553,7 +553,7 @@ h6 {
 #hero .btn-get-started {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 40px;
   letter-spacing: 1px;
   display: inline-block;
   padding: 14px 32px;
@@ -1800,5 +1800,19 @@ section {
   font-size: 13px;
 }
 
+.centerimg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
 
+p {
+    font-size:20px;
 
+}
+.mnn7n {
+    direction: rtl;
+    font-size:20px;
+    color:black;
+}

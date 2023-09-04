@@ -11,7 +11,7 @@
 <br />
 <br />
 <br />
-<h1 style="text-align:center"> من هنا يمكنك الاشتراك في الدورة الخاصة بنا </h1>
+<h1 style="text-align:center"> من هنا يمكنك حجز استشارة طبية اونلاين مع د. ريهام الشال   </h1>
 <div class="text-center">
     <div style="margin-left:30%" id="paypal-button-container"></div>
 </div>
@@ -26,10 +26,10 @@
             style: {
                 layout: 'vertical',
                 color: 'silver',
-                tagline: 'false'                             
+                tagline: 'false'
             },
             createOrder: (data, actions) => {
-                return fetch("@Url.Action("Order")", {
+                return fetch("@Url.Action("Order1")", {
                     method: "post",
                 }).then((response) => {
                     if (!response.ok) {
@@ -53,6 +53,6 @@
         }).render('#paypal-button-container');
     </script>
 
-    
+
 
 }
