@@ -53,21 +53,14 @@
 <h1 style="text-align:center">  أهم المواضيع </h1>
 
 
-  <div class="row">
+ @* <div class="row">
         @foreach (var item in Model)
             {
     <div class="col-sm-4 p-3 " >
         <div class="card shadow-lg">
             <div class="hamada">
                     <img src="~/assets/images/Articles/Married/sperm.webp" class="card-img-top" alt="fdg">
-                 @*   <ul style="text-align: center;" class="list-inline member-icon animate">
-                        <li class="list-inline-item">
-                            <button class="btn btn-primary"> <i class="fa-solid fa-pen-to-square"></i></button>
-                        </li>
-                        <li class="list-inline-item">
-                            <button class="btn btn-primary"> <i class="fa-solid fa-address-book"></i></button>
-                        </li>
-                    </ul>*@
+          
                     <div class="card-body" style="height: 180px;">
                         <h5 class="card-title">  @Html.DisplayFor(modelItem => item.Title)</h5>
                         <h6>  @Html.DisplayFor(modelItem => item.PublicationDate)</h6>
@@ -81,8 +74,41 @@
      </div>
 
      }
-  </div>
+  </div>*@
 
+
+@*   <ul style="text-align: center;" class="list-inline member-icon animate">
+                        <li class="list-inline-item">
+                            <button class="btn btn-primary"> <i class="fa-solid fa-pen-to-square"></i></button>
+                        </li>
+                        <li class="list-inline-item">
+                            <button class="btn btn-primary"> <i class="fa-solid fa-address-book"></i></button>
+                        </li>
+                    </ul>*@
+
+
+
+<div class="row">
+
+        <div class="col-sm-4 p-3 ">
+            <div class="card shadow-lg">
+                <div class="hamada">
+                    <img src="~/assets/images/Articles/Married/sperm.webp" class="card-img-top" alt="fdg">
+
+                    <div class="card-body" style="height: 180px;">
+                        <h5 class="card-title">  عنوان الموضوع</h5>
+                        <h6> 05-09-2023</h6>
+                        <p class="card-text" style=" height:60px;line-height:1.2em;overflow:hidden">
+                          كلام عن موضوع ما يتخحدث عن كذا كذا
+                        </p>
+                        <a href="/com" class="btn btn-primary">أقرئي المزيد</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+</div>
 
 
 @*

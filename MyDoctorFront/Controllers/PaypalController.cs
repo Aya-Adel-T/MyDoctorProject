@@ -25,7 +25,7 @@ namespace PaypalCheckoutExample.Controllers
             try
             {
                 // set the transaction price and currency
-                var price = "1.00";
+                var price = "25.00";
                 var currency = "USD";
 
                 // "reference" is the transaction key
@@ -51,7 +51,7 @@ namespace PaypalCheckoutExample.Controllers
             try
             {
                 // set the transaction price and currency
-                var price = "50.00";
+                var price = "15.00";
                 var currency = "USD";
 
                 // "reference" is the transaction key

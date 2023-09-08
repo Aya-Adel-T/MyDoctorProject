@@ -31,7 +31,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Andalus
+    /*font-family: 'Segoe Script'*/
+    font-family: Jazz LET, fantasy;
+    direction:rtl;
 }
 
 /*--------------------------------------------------------------
@@ -1809,10 +1811,35 @@ section {
 
 p {
     font-size:20px;
+    direction:rtl
 
+}
+ul {
+    direction :rtl
 }
 .mnn7n {
     direction: rtl;
     font-size:20px;
     color:black;
+}
+.paypalbut {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+.imgwlada {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+.fixedpay {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    margin-right: 40px;
+    padding: 10px;
+    font-size:20px;
+    background-color:grey
 }
