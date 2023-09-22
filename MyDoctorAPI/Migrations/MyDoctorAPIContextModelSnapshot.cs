@@ -51,16 +51,16 @@ namespace MyDoctorAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "12417e9d-f794-4d96-9b93-c9b42900e1fa",
+                            Id = "eb93409a-7840-444e-9bc5-168d8a33a806",
                             ConcurrencyStamp = "1",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "a43b11fd-2ca5-443b-ac53-56af1c7c73a7",
+                            Id = "4ff777f5-e5cc-446e-85cf-09dc1bfb8d95",
                             ConcurrencyStamp = "3",
-                            Name = "Customer",
+                            Name = "Writer",
                             NormalizedName = "Writer"
                         });
                 });
@@ -183,12 +183,10 @@ namespace MyDoctorAPI.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -225,12 +223,10 @@ namespace MyDoctorAPI.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -265,9 +261,6 @@ namespace MyDoctorAPI.Migrations
                     b.Property<DateTime>("PublicationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("SecurityID")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -280,8 +273,6 @@ namespace MyDoctorAPI.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("SecurityID");
 
                     b.HasIndex("WriterID");
 
@@ -364,17 +355,11 @@ namespace MyDoctorAPI.Migrations
 
             modelBuilder.Entity("MyDoctorAPI.Models.Article", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
-                        .WithMany()
-                        .HasForeignKey("SecurityID");
-
                     b.HasOne("MyDoctorAPI.Models.Writer", "Writer")
                         .WithMany("ArticlesList")
                         .HasForeignKey("WriterID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("IdentityUser");
 
                     b.Navigation("Writer");
                 });

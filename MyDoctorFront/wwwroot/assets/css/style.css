@@ -1839,7 +1839,16 @@ ul {
     right: 0;
     width: 400px;
     margin-right: 40px;
+    padding: 8px;
+    font-size: 20px;
+    background-color: #3FBABF
+}
+.freeses {
+    color: white;
+    position: fixed;
+    top: 20%;
+    left: 0%;
+    background-color: pink;
+    font-size: 25px;
     padding: 10px;
-    font-size:20px;
-    background-color:grey
 }

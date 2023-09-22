@@ -18,10 +18,25 @@ namespace MyDoctorAPI.Repository
         public List<Article> GetAll()
         {
             List<Article> ArticlesList = new();
+            List<Writer> WritersList = new();
             using (var customContext = Context.CreateDbContext())
             {
                 ArticlesList = customContext.Articles.ToList();
             }
+            using (var customContext = Context.CreateDbContext())
+            {
+                WritersList = customContext.Writers.ToList();
+            }
+            foreach(var article in ArticlesList)
+            {
+                foreach (var writer in WritersList)
+                {
+                    if (article.WriterID == writer.Id)
+
+                        article.Writer = writer;
+                }
+            }
+
 
             return ArticlesList;
         }
@@ -30,9 +45,22 @@ namespace MyDoctorAPI.Repository
         {
 
             var ArticleDetails = new Article();
+            List<Writer> WritersList = new();
+
+            using (var customContext = Context.CreateDbContext())
+            {
+                WritersList = customContext.Writers.ToList();
+            }
             using (var customContext = Context.CreateDbContext())
             {
                 ArticleDetails = customContext.Articles.Find(id);
+               foreach (var writer in WritersList)
+                {
+                    if (ArticleDetails.WriterID == writer.Id)
+                    {
+                        ArticleDetails.Writer = writer;
+                    }
+                }
             }
             return ArticleDetails;
         }
@@ -98,46 +126,64 @@ namespace MyDoctorAPI.Repository
             return ArticleData;
         }
 
-        public List<Article> GetSingle()
+        public List<Article> GetMiniHawa2()
         {
             List<Article> ArticlesList = new();
             using (var customContext = Context.CreateDbContext())
             {
-                ArticlesList = customContext.Articles.Where(s => (s.ArticleType == "Single") && (s.Status == "Approved")).ToList(); ; 
+                ArticlesList = customContext.Articles.Where(s => (s.ArticleType == "Mini-Hawa") && (s.Status == "Approved")).ToList(); ; 
             }
             return ArticlesList;
     }
 
-        public List<Article> GetMarried()
+        public List<Article> GetZawagNaks()
         {
             List<Article> ArticlesList = new();
             using (var customContext = Context.CreateDbContext())
             {
-                ArticlesList = customContext.Articles.Where(s => (s.ArticleType == "Married" )&& (s.Status == "Approved") ).ToList();
+                ArticlesList = customContext.Articles.Where(s => (s.ArticleType == "Zawag-Naks" )&& (s.Status == "Approved") ).ToList();
             }
             return ArticlesList;
         }
 
-        public List<Article> GetPregenant()
+        public List<Article> GetHatkoniOm()
         {
             List<Article> ArticlesList = new();
             using (var customContext = Context.CreateDbContext())
             {
-                ArticlesList = customContext.Articles.Where(s => (s.ArticleType == "Pregnant") && (s.Status == "Approved")).ToList(); ;
+                ArticlesList = customContext.Articles.Where(s => (s.ArticleType == "Hatkoni-Om") && (s.Status == "Approved")).ToList(); ;
             }
             return ArticlesList;
         }
 
-        public List<Article> GetMother()
+        public List<Article> Get9ShhorFar7a()
         {
             List<Article> ArticlesList = new();
             using (var customContext = Context.CreateDbContext())
             {
-                ArticlesList = customContext.Articles.Where(s => (s.ArticleType == "Mother") && (s.Status == "Approved")).ToList(); ;
+                ArticlesList = customContext.Articles.Where(s => (s.ArticleType == "9-Shohor-Far7a") && (s.Status == "Approved")).ToList(); ;
+            }
+            return ArticlesList;
+        }
+        public List<Article> GetWladaMotm2na()
+        {
+            List<Article> ArticlesList = new();
+            using (var customContext = Context.CreateDbContext())
+            {
+                ArticlesList = customContext.Articles.Where(s => (s.ArticleType == "Wlada-motm2na") && (s.Status == "Approved")).ToList(); ;
             }
             return ArticlesList;
         }
 
+        public List<Article> GetNga7kM3Tabibty()
+        {
+            List<Article> ArticlesList = new();
+            using (var customContext = Context.CreateDbContext())
+            {
+                ArticlesList = customContext.Articles.Where(s => (s.ArticleType == "Nga7k-Ma3-Tabibty") && (s.Status == "NotApproved")).ToList(); ;
+            }
+            return ArticlesList;
+        }
         public List<Article> GetNotApproved()
         {
             List<Article> ArticlesList = new();
@@ -147,10 +193,19 @@ namespace MyDoctorAPI.Repository
             }
             return ArticlesList;
         }
+        public List<Article> GetApproved()
+        {
+            List<Article> ArticlesList = new();
+            using (var customContext = Context.CreateDbContext())
+            {
+                ArticlesList = customContext.Articles.Where(s => s.Status == "Approved").ToList(); ;
+            }
+            return ArticlesList;
+        }
+
 
         public void ApproveArticles(int Id)
         {
-
             var ArticleDetails = new Article();
             using (var customContext = Context.CreateDbContext())
             {
@@ -158,28 +213,10 @@ namespace MyDoctorAPI.Repository
                 ArticleDetails.Status = "Approved";
                 customContext.Articles.Update(ArticleDetails);
                 customContext.SaveChanges();
-            }
-                    
+            }                
         }
 
-        public List<Article> GetNews()
-        {
-            List<Article> ArticlesList = new();
-            using (var customContext = Context.CreateDbContext())
-            {
-                ArticlesList = customContext.Articles.Where(s => (s.ArticleType == "News") && (s.Status == "Approved")).ToList(); ;
-            }
-            return ArticlesList;
-        }
 
-        public List<Article> GetNotApprovedNews()
-        {
-            List<Article> ArticlesList = new();
-            using (var customContext = Context.CreateDbContext())
-            {
-                ArticlesList = customContext.Articles.Where(s => (s.ArticleType == "News") && (s.Status == "NotApproved")).ToList(); ;
-            }
-            return ArticlesList;
-        }
+   
     }
 }

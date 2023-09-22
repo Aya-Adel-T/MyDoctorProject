@@ -24,7 +24,7 @@ public class MyDoctorAPIContext : IdentityDbContext<IdentityUser>
         Builder.Entity<IdentityRole>().HasData
             (
                 new IdentityRole() { Name = "Admin", ConcurrencyStamp = "1", NormalizedName = "Admin" },
-                new IdentityRole() { Name = "Customer", ConcurrencyStamp = "3", NormalizedName = "Writer" }
+                new IdentityRole() { Name = "Writer", ConcurrencyStamp = "3", NormalizedName = "Writer" }
             );
     }
 

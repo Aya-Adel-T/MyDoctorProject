@@ -1,0 +1,91 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<MyDoctorAPI.Models.Article>
+@{
+    //Layout = "~/Views/Shared/_LayoutCustom.cshtml";
+
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<style>
+
+    img {
+        height: 150px;
+    }
+
+    .card {
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+        transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+        padding: 14px;
+        cursor: pointer;
+    }
+
+        .card:hover {
+            transform: scale(1.11);
+            box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+        }
+
+        .card img {
+            transform: scale(1);
+            box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+        }
+
+        .card:hover img {
+            opacity: 0.8;
+        }
+
+    .hamada:hover .member-icon {
+        margin-top: 5px;
+    }
+
+    .member-icon {
+        margin-top: -40px;
+    }
+
+    .animate {
+        transition: all 0.3s ease-in-out;
+    }
+
+</style>
+
+<h1 style="text-align:center">  Not Approved Articles </h1>
+
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-4 p-3 ">
+            <div class="card shadow-lg">
+                <div class="hamada">
+                    <img src="@Html.DisplayFor(modelItem => item.ArticleImg)" class="card-img-top" alt="fdg">
+
+                    <div class="card-body" style="height: 180px;">
+                        <h5 class="card-title">  @Html.DisplayFor(modelItem => item.Title)</h5>
+                        <h6>  @Html.DisplayFor(modelItem => item.PublicationDate)</h6>
+                        <p class="card-text" style=" height:60px;line-height:1.2em;overflow:hidden">
+                            @Html.DisplayFor(modelItem => item.OurArticle)
+                        </p>
+                        <a href="/com" class="btn btn-primary">أقرئي المزيد</a>
+
+                        <a class="btn btn-style btn-white btn-primary" asp-controller="ArticleFront" asp-action="ApproveArticles" asp-route-id="@item.Id">Approve Article</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+

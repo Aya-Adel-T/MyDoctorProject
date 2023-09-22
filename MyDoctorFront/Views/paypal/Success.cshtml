@@ -15,4 +15,15 @@
 <br />
 <br />
 <br />
-<h1>Payment Success!</h1>
+
+
+
+<h1>Payment Success! </h1>
+<div>
+    <form asp-controller="SendEmail" asp-action="SendEmail" method="post">
+        <label for="Email">Purchased Done Now Enter the email with which you want to receive the course:</label>
+        <input type="Email" id="Email" name="Email"><br><br>
+        <button type="submit" class="btn btn-primary"> Press here </button>
+    </form>
+</div>
+

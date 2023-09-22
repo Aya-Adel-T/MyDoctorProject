@@ -1,13 +1,44 @@
-﻿
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<h1> ana index mn article</h1>
-      
+﻿@model IEnumerable<MyDoctorAPI.Models.Article>
+@{
+    ViewData["Title"] = "Index"; 
+    //Layout = "~/Views/_Layout.cshtml";
 
-                    
+}
+<br /><br /><br /><br /><br /><br />
+
+    
+    <div class="container"> 
+        <p style="text-align:center">
+            <a asp-action="Create">Create New</a>
+        </p>
+    </div>
+    <section class="w3l-passion-mid-sec">
+        <div class="container">
+            <div class="container">
+                <div class="row w3l-passion-mid-grids">
+
+                    <br />
+
+                    @foreach (var item in Model.Reverse())
+                    {
+
+                        <div style="background-color:oldlace;" class="col-lg-8 passion-grid-item-info  mt-lg-3 mt-5 ml-lg-5">
+                        <h2 class="title-subw3hny" style="text-align:center"> @Html.DisplayFor(modelItem => item.Title)</h2>
+                        <img class="col-lg-7" src=" @Html.DisplayFor(model => item.ArticleImg)" alt="paayz">
+                            <h2 class="title-subw3hny"> تاريخ النشر: @Html.DisplayFor(modelItem => item.PublicationDate) </h2>
+                        <h2 class="title-subw3hny"> الحاله: @Html.DisplayFor(modelItem => item.Status)</h2>
+                            <h2 class="title-subw3hny"> تاريخ الانشاء: @Html.DisplayFor(modelItem => item.CreationDate)</h2>
+                            <h2 class="title-subw3hny"> اسم الكاتب: @Html.DisplayFor(modelItem => item.Writer.Name)</h2>
+@*                        <h2 class="title-subw3hny"> @Html.DisplayFor(modelItem => item.OurArticle)</h2>
+*@                            <a class="btn btn-primary btn-style mt-lg-5 mt-4" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                            <a class="btn btn-primary btn-style mt-lg-5 mt-4" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                            <a class="btn btn-primary btn-style mt-lg-5 mt-4" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            <br />
+                            <hr />
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </section>

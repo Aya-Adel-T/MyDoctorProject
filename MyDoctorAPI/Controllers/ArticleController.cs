@@ -25,37 +25,37 @@ namespace MyDoctorAPI.Controllers
         {
             return ArticleRepo.GetNotApproved();
         }
-        [HttpGet("GetSingle")]
-        public ActionResult<List<Article>> GetSingle()
+        [HttpGet("GetMiniHawa")]
+        public ActionResult<List<Article>> GetMiniHawa()
         {
-            return ArticleRepo.GetSingle();
+            return ArticleRepo.GetMiniHawa2();
         }
-        [HttpGet("GetMarried")]
-        public ActionResult<List<Article>> GetMarried()
+        [HttpGet("GetZawagNaks")]
+        public ActionResult<List<Article>> GetZawagNaks()
         {
-            return ArticleRepo.GetMarried();
+            return ArticleRepo.GetZawagNaks();
         }
-        [HttpGet("GetPregnant")]
-        public ActionResult<List<Article>> GetPregnant()
+        [HttpGet("GetHatkoniOm")]
+        public ActionResult<List<Article>> GetHatkoniOm()
         {
-            return ArticleRepo.GetPregenant();
+            return ArticleRepo.GetHatkoniOm();
         }
-        [HttpGet("GetMother")]
-        public ActionResult<List<Article>> GetMother()
+        [HttpGet("Get9ShhorFar7a")]
+        public ActionResult<List<Article>> Get9ShhorFar7a()
         {
-            return ArticleRepo.GetMother();
+            return ArticleRepo.Get9ShhorFar7a();
         }
-        [HttpGet("GetApprovedNews")]
+        [HttpGet("GetWladaMotm2na")]
 
-        public ActionResult<List<Article>> GetApprovedNews()
+        public ActionResult<List<Article>> GetWladaMotm2na()
         {
-            return ArticleRepo.GetNews();
+            return ArticleRepo.GetWladaMotm2na();
         }
-        [HttpGet("GetNotApprovedNews")]
+        [HttpGet("GetNga7kM3Tabibty")]
 
-        public ActionResult<List<Article>> GetNotApprovedNews()
+        public ActionResult<List<Article>> GetNga7kM3Tabibty()
         {
-            return ArticleRepo.GetNotApprovedNews();
+            return ArticleRepo.GetNga7kM3Tabibty();
         }
 
         [HttpGet("{id}")]
@@ -65,7 +65,7 @@ namespace MyDoctorAPI.Controllers
         }
         [HttpDelete("{id}")]
 
-        public ActionResult<Article> DeleteWriter(int id)
+        public ActionResult<Article> DeleteArticle(int id)
         {
             Article ArticleData = ArticleRepo.Delete(id);
             return Ok(ArticleData);
@@ -80,7 +80,7 @@ namespace MyDoctorAPI.Controllers
             }
             return NotFound();
         }
-        [HttpPut("ApproveArticles")]
+        [HttpPut("ApproveArticles{id}")]
         public ActionResult ApproveArticles(int Id)
         {
             if (Id != 0)
@@ -109,8 +109,8 @@ namespace MyDoctorAPI.Controllers
             return BadRequest();
         }
         //Upload Images
-        [HttpPost("uploadImage/{newsTitle}")]
-        //[Authorize(Roles = "Admin")]
+        [HttpPost("uploadImage/{ArticleTitle}")]
+        //[Authorize(Roles = "Admin,Writer")]
         public ActionResult UploadImage(IFormFile file, string ArticleTitle)
         {
             var Results = ArticleRepo.UploadImage(file, ArticleTitle);

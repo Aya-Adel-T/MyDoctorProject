@@ -1,0 +1,33 @@
+﻿@model MyDoctorAPI.Models.Article
+
+@{
+    ViewData["Title"] = "addNewsImage";
+
+}
+
+<br /><br /><br /><br />
+<br /><br /><br /><br />
+<h4 style="text-align:center" >Now add the image</h4>
+<hr />
+<div class="container" style=" display: flex;justify-content: center;">
+    <div class="col-md-4">
+        <form asp-action="addNewsImage" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input readonly asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+       
+            <div class="form-group">
+                <label asp-for="ArticleImg" class="control-label"></label>
+                <input type="file" name="file" class="form-control" />
+            </div>
+      
+            <div class="form-group">
+                <input type="submit" value="addNewsImage" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,13 +1,18 @@
 
+using Microsoft.AspNetCore.Authentication.Cookies;
+using MyDoctorFront.Helpers;
 using PaypalCheckoutExample.Clients;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddRazorPages();
 builder.Services.AddDistributedMemoryCache();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromSeconds(1000);
@@ -21,9 +26,10 @@ builder.Services.AddSingleton(x =>
         builder.Configuration["PayPalOptions:ClientId"],
         builder.Configuration["PayPalOptions:ClientSecret"],
         builder.Configuration["PayPalOptions:Mode"]
-    )
+)
 );
 
+builder.Services.AddScoped<IEmailSender, Email>();
 
 
 var app = builder.Build();

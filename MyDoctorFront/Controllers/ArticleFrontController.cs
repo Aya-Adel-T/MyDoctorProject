@@ -1,17 +1,20 @@
 ﻿using FeliveryAdminPanel.Helpers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MyDoctorAPI.Models;
 using MyDoctorAPI.Repository;
 using Newtonsoft.Json;
+using System.Data;
+using System.Net.Http.Headers;
 
 namespace MyDoctorFront.Controllers
 {
     public class ArticleFrontController : Controller
     {
         APIClient _api = new APIClient();
-
+        //GetAllArticles
         public async Task<IActionResult> Index()
         {
             HttpClient Client = _api.Initial();
@@ -25,12 +28,12 @@ namespace MyDoctorFront.Controllers
                 return View();
             }
         }
-        public async Task<IActionResult> GetSingle()
+        public async Task<IActionResult> Minihawa2()
         {
             HttpClient Client = _api.Initial();
             try
             {
-                var ArticlesList = await Client.GetFromJsonAsync<List<Article>>("api/Article/GetSingle");
+                var ArticlesList = await Client.GetFromJsonAsync<List<Article>>("api/Article/GetMiniHawa");
                 return View(ArticlesList);
             }
             catch (Exception e)
@@ -38,12 +41,12 @@ namespace MyDoctorFront.Controllers
                 return View();
             }
         }
-        public async Task<IActionResult> GetMarried()
+        public async Task<IActionResult> ZawagNaks()
         {
             HttpClient Client = _api.Initial();
             try
             {
-                var ArticlesList = await Client.GetFromJsonAsync<List<Article>>("api/Article/GetMarried");
+                var ArticlesList = await Client.GetFromJsonAsync<List<Article>>("api/Article/GetZawagNaks");
                 return View(ArticlesList);
             }
             catch (Exception e)
@@ -51,12 +54,12 @@ namespace MyDoctorFront.Controllers
                 return View();
             }
         }
-        public async Task<IActionResult> GetPregnant()
+        public async Task<IActionResult> HatkoniOm()
         {
             HttpClient Client = _api.Initial();
             try
             {
-                var ArticlesList = await Client.GetFromJsonAsync<List<Article>>("api/Article/GetPregnant");
+                var ArticlesList = await Client.GetFromJsonAsync<List<Article>>("api/Article/GetHatkoniOm");
                 return View(ArticlesList);
             }
             catch (Exception e)
@@ -64,12 +67,12 @@ namespace MyDoctorFront.Controllers
                 return View();
             }
         }
-        public async Task<IActionResult> GetMother()
+        public async Task<IActionResult> tes3ShhorFar7a()
         {
             HttpClient Client = _api.Initial();
             try
             {
-                var ArticlesList = await Client.GetFromJsonAsync<List<Article>>("api/Article/GetMother");
+                var ArticlesList = await Client.GetFromJsonAsync<List<Article>>("api/Article/Get9ShhorFar7a");
                 return View(ArticlesList);
             }
             catch (Exception e)
@@ -77,6 +80,61 @@ namespace MyDoctorFront.Controllers
                 return View();
             }
         }
+        public async Task<IActionResult> WladaMotm2na()
+        {
+            HttpClient Client = _api.Initial();
+            try
+            {
+                var ArticlesList = await Client.GetFromJsonAsync<List<Article>>("api/Article/GetWladaMotm2na");
+                return View(ArticlesList);
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
+        }
+        public async Task<IActionResult> Nga7kM3Tabibty()
+        {
+            HttpClient Client = _api.Initial();
+            try
+            {
+                var ArticlesList = await Client.GetFromJsonAsync<List<Article>>("api/Article/GetNga7kM3Tabibty");
+                return View(ArticlesList);
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
+        }
+        public async Task<IActionResult> ApprovedArticles()
+        {
+            HttpClient Client = _api.Initial();
+            try
+            {
+                var ArticlesList = await Client.GetFromJsonAsync<List<Article>>("api/Article/GetApprovedArticles");
+                return View(ArticlesList);
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
+        }
+        public async Task<IActionResult> NotApprovedArticles()
+        {
+            HttpClient Client = _api.Initial();
+            try
+            {
+                var ArticlesList = await Client.GetFromJsonAsync<List<Article>>("api/Article/GetNotApprovedArticles");
+                return View(ArticlesList);
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
+        }
+
+     
+
         [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
@@ -108,9 +166,25 @@ namespace MyDoctorFront.Controllers
             HttpResponseMessage res = await client.PostAsJsonAsync($"api/Article", article);
             if (res.IsSuccessStatusCode)
             {
-                return RedirectToAction("Index");
+                return View("addNewsImage");
             }
             return View();
+        }
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> ApproveArticles(int id)
+        {
+            HttpClient Client = _api.Initial();
+            try
+            {
+                var requestBody = new { id = id, Status = "Approved" };
+
+                var ArticlesList = await Client.PutAsJsonAsync($"api/Article/ApproveArticles{id}", requestBody);
+                return View(ArticlesList);
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
         }
         public async Task<ActionResult> Edit(int id)
         {
@@ -167,6 +241,30 @@ namespace MyDoctorFront.Controllers
 
             return View();
         }
-     
+        [HttpPost]
+        public async Task<IActionResult> addNewsImage(IFormFile file, string Title)
+        {
+            HttpClient client = _api.Initial();
+
+            using (var content = new MultipartFormDataContent())
+            {
+                content.Add(new StreamContent(file.OpenReadStream())
+                {
+                    Headers =
+                     {
+                         ContentLength = file.Length,
+                         ContentType = new MediaTypeHeaderValue(file.ContentType)
+                     }
+                }, "file", file.FileName);
+
+                HttpResponseMessage res = await client.PostAsync($"api/Article/uploadImage/{Title}", content);
+                if (res.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+                return View();
+            }
+        }
+
     }
 }

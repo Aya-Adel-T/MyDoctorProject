@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+@*@{
+    Layout = "~/Views/_Layout.cshtml";
+
+}*@
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<h1 style="text-align:center">Welcome to Writer panel</h1>
+<section class="w3l-passion-mid-sec">
+    <div class="container">
+        <div class="container">
+            <div class="row w3l-passion-mid-grids">
+
+
+                <div class="card" >
+                    <a style="text-align:center;font-size:40px" class="nav-link " class="btn btn-primary" asp-area="" asp-controller="ArticleFront" asp-action="Index">All Articles</a>
+                    <img class="card-img-top" src="~/assets/images/writer/writer.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text" style="text-align:center"> Here you can control all the Articles on the website </p>
+                      
+                    </div>
+                </div>       
+            </div>
+        </div>
+    </div>
+</section>
