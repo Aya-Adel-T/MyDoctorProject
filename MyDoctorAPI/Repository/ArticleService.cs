@@ -90,8 +90,7 @@ namespace MyDoctorAPI.Repository
             if (Img != null)
             {
                 string ImageUrl = string.Empty;
-                string HostUrl = "https://localhost:7292/";
-
+                string HostUrl = "https://mydoctorapi121852.azurewebsites.net/";              
                 string RawName = ArticleTitle.Replace(" ", "-");
                 string filePath = _environment.WebRootPath + "\\Uploads\\Product\\" + RawName;
                 string imagepath = filePath + "\\ArticleImg.png";

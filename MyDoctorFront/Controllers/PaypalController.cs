@@ -72,6 +72,136 @@ namespace PaypalCheckoutExample.Controllers
             }
         }
         [HttpPost]
+        public async Task<IActionResult> Order2(CancellationToken cancellationToken)
+        {
+            try
+            {
+                // set the transaction price and currency
+                var price = "12.00";
+                var currency = "USD";
+
+                // "reference" is the transaction key
+                var reference = "INV001";
+
+                var response = await _paypalClient.CreateOrder(price, currency, reference);
+
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+                var error = new
+                {
+                    e.GetBaseException().Message
+                };
+
+                return BadRequest(error);
+            }
+        }
+        [HttpPost]
+        public async Task<IActionResult> Order3(CancellationToken cancellationToken)
+        {
+            try
+            {
+                // set the transaction price and currency
+                var price = "6.00";
+                var currency = "USD";
+
+                // "reference" is the transaction key
+                var reference = "INV001";
+
+                var response = await _paypalClient.CreateOrder(price, currency, reference);
+
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+                var error = new
+                {
+                    e.GetBaseException().Message
+                };
+
+                return BadRequest(error);
+            }
+        }
+        [HttpPost]
+        public async Task<IActionResult> Order4(CancellationToken cancellationToken)
+        {
+            try
+            {
+                // set the transaction price and currency
+                var price = "45.00";
+                var currency = "USD";
+
+                // "reference" is the transaction key
+                var reference = "INV001";
+
+                var response = await _paypalClient.CreateOrder(price, currency, reference);
+
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+                var error = new
+                {
+                    e.GetBaseException().Message
+                };
+
+                return BadRequest(error);
+            }
+        }
+        [HttpPost]
+        public async Task<IActionResult> Order5(CancellationToken cancellationToken)
+        {
+            try
+            {
+                // set the transaction price and currency
+                var price = "9.00";
+                var currency = "USD";
+
+                // "reference" is the transaction key
+                var reference = "INV001";
+
+                var response = await _paypalClient.CreateOrder(price, currency, reference);
+
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+                var error = new
+                {
+                    e.GetBaseException().Message
+                };
+
+                return BadRequest(error);
+            }
+        }
+        [HttpPost]
+        public async Task<IActionResult> Order6(CancellationToken cancellationToken)
+        {
+            try
+            {
+                // set the transaction price and currency
+                var price = "10.00";
+                var currency = "USD";
+
+                // "reference" is the transaction key
+                var reference = "INV001";
+
+                var response = await _paypalClient.CreateOrder(price, currency, reference);
+
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+                var error = new
+                {
+                    e.GetBaseException().Message
+                };
+
+                return BadRequest(error);
+            }
+        }
+        [HttpPost]
         public async Task<IActionResult> Orderconsultant(CancellationToken cancellationToken)
         {
             try
@@ -126,8 +256,19 @@ namespace PaypalCheckoutExample.Controllers
         {
             return View();
         }
+        public IActionResult SuccessAll()
+        {
+            return View();
+        }
 
         public IActionResult Index1()
+        {
+            // ViewBag.ClientId is used to get the Paypal Checkout javascript SDK
+            ViewBag.ClientId = _paypalClient.ClientId;
+
+            return View();
+        }
+        public IActionResult Payment10()
         {
             // ViewBag.ClientId is used to get the Paypal Checkout javascript SDK
             ViewBag.ClientId = _paypalClient.ClientId;

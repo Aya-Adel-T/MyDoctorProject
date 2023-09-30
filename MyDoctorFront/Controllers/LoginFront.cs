@@ -141,6 +141,7 @@ namespace FrontEndNewsWebsite.Controllers
         {
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Home");
+
         }
         [Authorize(Roles = "Writer ,Admin")]
         public IActionResult WriterPanel()

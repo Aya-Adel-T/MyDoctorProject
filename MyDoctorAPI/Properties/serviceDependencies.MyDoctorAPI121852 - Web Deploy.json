@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "apis2": {
+      "ignored": "true",
+      "type": "apis.azure"
+    },
+    "identityapp1": {
+      "ignored": "true",
+      "type": "identityapp"
+    },
+    "mssql1": {
+      "ignored": "true",
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:MyDoctorAPIContextConnection"
+    },
+    "mssql2": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/MyDoctorAPI121852/providers/Microsoft.ServiceLinker/linkers/MyDoctorAPIContextConnection_02B026EB8E",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/mydoctorapidbserver/databases/MyDoctorAPI_db",
+      "type": "mssql.azure",
+      "connectionId": "MyDoctorAPIContextConnection"
+    }
+  }
+}

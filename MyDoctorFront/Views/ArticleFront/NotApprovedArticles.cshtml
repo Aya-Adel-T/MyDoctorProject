@@ -66,22 +66,22 @@
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-sm-4 p-3 ">
+        <div class="col-sm-4 p-5 ">
             <div class="card shadow-lg">
                 <div class="hamada">
                     <img src="@Html.DisplayFor(modelItem => item.ArticleImg)" class="card-img-top" alt="fdg">
 
-                    <div class="card-body" style="height: 180px;">
+                    <div class="card-body" style="height: 200px;">
                         <h5 class="card-title">  @Html.DisplayFor(modelItem => item.Title)</h5>
                         <h6>  @Html.DisplayFor(modelItem => item.PublicationDate)</h6>
                         <p class="card-text" style=" height:60px;line-height:1.2em;overflow:hidden">
                             @Html.DisplayFor(modelItem => item.OurArticle)
                         </p>
-                        <a href="/com" class="btn btn-primary">أقرئي المزيد</a>
-
-                        <a class="btn btn-style btn-white btn-primary" asp-controller="ArticleFront" asp-action="ApproveArticles" asp-route-id="@item.Id">Approve Article</a>
-
                     </div>
+                    <a class="btn btn-primary btn-style mt-lg-5 mt-4" asp-controller="ArticleFront" asp-action="Details" asp-route-id="@item.Id">أقرئي المزيد</a>
+                    <a class="btn btn-primary btn-style mt-lg-5 mt-4" asp-controller="ArticleFront" asp-action="ApproveArticles" asp-route-id="@item.Id">Approve Article</a>
+                    <a class="btn btn-primary btn-style mt-lg-5 mt-4" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-primary btn-style mt-lg-5 mt-4" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </div>
             </div>
         </div>

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MyDoctorAPI.Models;
+using System.Drawing;
 
 namespace MyDoctorAPI.Data;
 
@@ -13,6 +14,8 @@ public class MyDoctorAPIContext : IdentityDbContext<IdentityUser>
 
         public DbSet<Article> Articles { get; set; }
         public DbSet<Writer> Writers { get; set; }
+        public DbSet<UserEmail> UsersEmail { get; set; }
+        public DbSet<Picture> Pictures { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

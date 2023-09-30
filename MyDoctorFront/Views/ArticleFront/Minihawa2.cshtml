@@ -5,9 +5,14 @@
 }
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
 <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-<br /> <br/> <br/><br /> <br/> <br/>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <style>
-   
+
     img {
         height: 150px;
     }
@@ -52,26 +57,26 @@
 <h1 style="text-align:center">  أهم المواضيع </h1>
 
 
- <div class="row">
-        @foreach (var item in Model)
-            {
-    <div class="col-sm-4 p-3 " >
-        <div class="card shadow-lg">
-            <div class="hamada">
-                    <img src="@Html.DisplayFor(modelItem => item.ArticleImg)" class="card-img-top" alt="fdg">
-          
-                    <div class="card-body" style="height: 180px;">
-                        <h5 class="card-title">  @Html.DisplayFor(modelItem => item.Title)</h5>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-4 p-3 ">
+            <div class="card shadow-lg">
+                <div class="hamada">
+
+                    <div class="card-body">
+                        <h5 style="text-align:center" class="card-title">  @Html.DisplayFor(modelItem => item.Title)</h5>
+                        <img src="@Html.DisplayFor(modelItem => item.ArticleImg)" class="card-img-top" alt="fdg">
                         <h6>  @Html.DisplayFor(modelItem => item.PublicationDate)</h6>
                         <p class="card-text" style=" height:60px;line-height:1.2em;overflow:hidden">
                             @Html.DisplayFor(modelItem => item.OurArticle)
                         </p>
-                        <a href="/com" class="btn btn-primary">أقرئي المزيد</a>
+                        @*<a asp-controller="ArticleFront" asp-action="DetailsUser" class="btn btn-primary">أقرئي المزيد</a>*@
+                        <a class="btn btn-primary btn-style mt-lg-5 mt-4" asp-controller="ArticleFront" asp-action="Details" asp-route-id="@item.Id">أقرئي المزيد</a>
+                    </div>
                 </div>
-          </div>
-     </div>
-     </div>
-
-     }
-  </div>
+            </div>
+        </div>
+    }
+</div>
 

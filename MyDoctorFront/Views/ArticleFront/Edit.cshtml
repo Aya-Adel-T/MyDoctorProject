@@ -15,6 +15,52 @@
             <input type="hidden" asp-for="Id" />
 
             <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="OurArticle" class="control-label"></label>
+                <textarea asp-for="OurArticle" class="form-control"></textarea>
+                <span asp-validation-for="OurArticle" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ArticleType" class="control-label"></label>
+                <select asp-for="ArticleType" class="form-control">
+                    <option value="Mini-Hawa">Mini حواء</option>
+                    <option value="Zawag-Naks">زواج ناقص</option>
+                    <option value="Hatkoni-Om">هتكوني أم</option>
+                    <option value="9-Shohor-Far7a">تسعة شهور فرحة</option>
+                    <option value="Wlada-motm2na">ولادة مطمئنة</option>
+                    <option value="Nga7k-Ma3-Tabibty">نجاحك مع طبيبتي</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ArticleVideo" class="control-label"></label>
+                <input asp-for="ArticleVideo" class="form-control" type="text" />
+                <span asp-validation-for="ArticleVideo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PublicationDate" class="control-label"></label>
+                <input asp-for="PublicationDate" class="form-control" type="datetime-local" />
+                <span asp-validation-for="PublicationDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="WriterID" class="control-label"></label>
+                <select asp-for="WriterID" class="form-control">
+                    <option value="1">First Writer </option>
+                    <option value="2">Dr Reham</option>
+
+                </select>
+            </div>
+
+
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

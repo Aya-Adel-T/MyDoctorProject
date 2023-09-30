@@ -36,8 +36,13 @@
                 </select>
             </div>
             <div class="form-group">
+                <label asp-for="ArticleVideo" class="control-label"></label>
+                <input asp-for="ArticleVideo" class="form-control" type="text" />
+                <span asp-validation-for="ArticleVideo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="PublicationDate" class="control-label"></label>
-                <input asp-for="PublicationDate" class="form-control" type="date" />
+                <input asp-for="PublicationDate" class="form-control" type="datetime-local"  />
                 <span asp-validation-for="PublicationDate" class="text-danger"></span>
             </div>
             <div class="form-group">

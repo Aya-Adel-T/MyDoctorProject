@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MyDoctorAPI.Models;
 using MyDoctorAPI.Repository;
+using MyDoctorFront.Helpers;
 using Newtonsoft.Json;
 using System.Data;
 using System.Net.Http.Headers;
@@ -14,6 +15,12 @@ namespace MyDoctorFront.Controllers
     public class ArticleFrontController : Controller
     {
         APIClient _api = new APIClient();
+        private readonly IEmailSender _email;
+
+        public ArticleFrontController(IEmailSender email)
+        {
+            _email = email;
+        }
         //GetAllArticles
         public async Task<IActionResult> Index()
         {
@@ -23,6 +30,7 @@ namespace MyDoctorFront.Controllers
                 var ArticlesList = await Client.GetFromJsonAsync<List<Article>>("api/Article");
                 return View(ArticlesList);
             }
+
             catch (Exception e)
             {
                 return View();
@@ -41,6 +49,16 @@ namespace MyDoctorFront.Controllers
                 return View();
             }
         }
+
+        public async Task<IActionResult> DetailsUser()
+        {
+          
+                return View();
+            
+        }
+
+
+
         public async Task<IActionResult> ZawagNaks()
         {
             HttpClient Client = _api.Initial();
@@ -112,6 +130,7 @@ namespace MyDoctorFront.Controllers
             try
             {
                 var ArticlesList = await Client.GetFromJsonAsync<List<Article>>("api/Article/GetApprovedArticles");
+               
                 return View(ArticlesList);
             }
             catch (Exception e)
@@ -119,6 +138,7 @@ namespace MyDoctorFront.Controllers
                 return View();
             }
         }
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> NotApprovedArticles()
         {
             HttpClient Client = _api.Initial();
@@ -132,9 +152,6 @@ namespace MyDoctorFront.Controllers
                 return View();
             }
         }
-
-     
-
         [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
@@ -148,6 +165,7 @@ namespace MyDoctorFront.Controllers
             }
             return View(article);
         }
+        [Authorize(Roles = "Writer ,Admin")]
         public async Task<IActionResult> Create()
         {
 
@@ -179,6 +197,12 @@ namespace MyDoctorFront.Controllers
                 var requestBody = new { id = id, Status = "Approved" };
 
                 var ArticlesList = await Client.PutAsJsonAsync($"api/Article/ApproveArticles{id}", requestBody);
+                 var EmailsList = await Client.GetFromJsonAsync<List<UserEmail>>("api/UserEmailAddress");
+                foreach (var Email in EmailsList)
+                {
+                    _email.SendEmailsWithArticle(Email.Email);
+
+                }
                 return View(ArticlesList);
             }
             catch (Exception e)
@@ -186,6 +210,7 @@ namespace MyDoctorFront.Controllers
                 return View();
             }
         }
+        [Authorize(Roles = "Writer ,Admin")]
         public async Task<ActionResult> Edit(int id)
         {
             Article article = new Article();
@@ -210,11 +235,12 @@ namespace MyDoctorFront.Controllers
 
             if (res.IsSuccessStatusCode)
             {
-                return RedirectToAction("index");
+                return View("addNewsImage");
             }
 
             return View(article);
         }
+        [Authorize(Roles = "Writer ,Admin")]
         public async Task<ActionResult> Delete(int? id)
         {
             Article article = new Article();
@@ -227,7 +253,6 @@ namespace MyDoctorFront.Controllers
             }
             return View(article);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
@@ -242,6 +267,7 @@ namespace MyDoctorFront.Controllers
             return View();
         }
         [HttpPost]
+        [Authorize(Roles = "Writer ,Admin")]
         public async Task<IActionResult> addNewsImage(IFormFile file, string Title)
         {
             HttpClient client = _api.Initial();

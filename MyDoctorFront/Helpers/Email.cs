@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using SmtpClient = MailKit.Net.Smtp.SmtpClient;
 using static System.Net.WebRequestMethods;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using MyDoctorAPI.Models;
 
 namespace MyDoctorFront.Helpers
 {
@@ -29,18 +30,15 @@ namespace MyDoctorFront.Helpers
             email.Body = new TextPart(TextFormat.Html)
             {
                 Text =
-                "نحن نثق بكما" +
-                "الدورة هنا" +
-                "https://forms.gle/NupdSNWtC2mtHRJ4A " +
-                "لتفعيل الإشتراك يرجى ارسال الإيميل الذى سيحدد لفتح دورة [ ولادة مطمئنة ] واتساب على" +
-                "https://wa.me/201005217612" +
-                "سيتم إرسال كلمة المرور عليه " +
-                "" +
-                "وفقكم الله دائما و أحل عليكم بركته"
-
-
-
-
+                "نحن نثق بكما   <br>" +
+                
+                "الدورة هنا \n" +
+                "https://forms.gle/NupdSNWtC2mtHRJ4A <br>" +
+                "لتفعيل الإشتراك يرجى ارسال الإيميل الذى سيحدد لفتح دورة [ ولادة مطمئنة ] واتساب على \n <br>" +
+                "https://wa.me/201005217612 \n <br>" +
+                "سيتم إرسال كلمة المرور عليه \n <br>" +
+                "\n <br>" +
+                "وفقكم الله دائما و أحل عليكم بركته \n <br>"
             };
 
 
@@ -60,6 +58,28 @@ namespace MyDoctorFront.Helpers
             smtp.Authenticate(_config.GetSection("EmailUsername").Value, _config.GetSection("EmailPassword").Value);
             smtp.Send(email);
             smtp.Send(emailToAdmin);
+            smtp.Disconnect(true);
+        }
+
+
+
+
+        public void SendEmailsWithArticle(string to)
+        {
+
+            var email = new MimeMessage();
+            email.From.Add(MailboxAddress.Parse(_config.GetSection("EmailUsername").Value));
+            email.To.Add(MailboxAddress.Parse(to));
+            email.Subject = "مقال جديد من طبيبتي";
+            email.Body = new TextPart(TextFormat.Html)
+            {
+                Text = "تمت اضافة مقاله جديده على موقع طبيبتي <br>" +
+                "https://tbibti.azurewebsites.net/"
+            };
+            using var smtp = new SmtpClient();
+            smtp.Connect(_config.GetSection("EmailHost").Value, 587, SecureSocketOptions.StartTls);
+            smtp.Authenticate(_config.GetSection("EmailUsername").Value, _config.GetSection("EmailPassword").Value);
+            smtp.Send(email);
             smtp.Disconnect(true);
         }
 

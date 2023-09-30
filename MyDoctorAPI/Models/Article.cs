@@ -27,6 +27,7 @@ namespace MyDoctorAPI.Models
         public  string ArticleType { get; set; }
         public string Status { get; set; } = "NotApproved";
         public string? ArticleImg { get; set; }
+        public string? ArticleVideo { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime PublicationDate { get; set; } 
         [DataType(DataType.DateTime)]

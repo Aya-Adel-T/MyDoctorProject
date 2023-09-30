@@ -6,8 +6,11 @@
         public HttpClient Initial()
         {
             var Client = new HttpClient();
+            //Client.BaseAddress = new Uri("https://mydoctorapi121852.azurewebsites.net/api");
             Client.BaseAddress = new Uri("https://localhost:7292/api");
             return Client;
         }
     }
+    
+
 }

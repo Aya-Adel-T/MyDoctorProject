@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyDoctorAPI.Data;
 
@@ -11,9 +12,11 @@ using MyDoctorAPI.Data;
 namespace MyDoctorAPI.Migrations
 {
     [DbContext(typeof(MyDoctorAPIContext))]
-    partial class MyDoctorAPIContextModelSnapshot : ModelSnapshot
+    [Migration("20230923162221_addedVideoToArticle")]
+    partial class addedVideoToArticle
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,14 +54,14 @@ namespace MyDoctorAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "90f79ea5-d6d1-46e8-b88d-92c7cf21cb13",
+                            Id = "5caa1eae-2536-4d5b-8980-78be48f87b8a",
                             ConcurrencyStamp = "1",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "a16847c4-9179-4751-92db-56bea29d4575",
+                            Id = "376d36f1-733e-49e6-8e61-03f018c1601d",
                             ConcurrencyStamp = "3",
                             Name = "Writer",
                             NormalizedName = "Writer"
@@ -280,43 +283,6 @@ namespace MyDoctorAPI.Migrations
                     b.HasIndex("WriterID");
 
                     b.ToTable("Articles");
-                });
-
-            modelBuilder.Entity("MyDoctorAPI.Models.Picture", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Pictures");
-                });
-
-            modelBuilder.Entity("MyDoctorAPI.Models.UserEmail", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UsersEmail");
                 });
 
             modelBuilder.Entity("MyDoctorAPI.Models.Writer", b =>

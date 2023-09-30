@@ -1,8 +1,13 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+
 <!-- ======= Hero Section ======= -->
+<br />
+<br />
+<br />
 <section id="hero">
+   
     <div id="heroCarousel" data-bs-interval="1500" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
         <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
@@ -17,7 +22,7 @@
                     <a asp-controller="Paypal" asp-action="Index1" class="btn-get-started scrollto">احجز استشارتك الأن </a>
                 </div>
             </div>
-
+          
             <!-- Slide 2 -->
             <div class="carousel-item" style="background-image: url(assets/images/slide/p7.jpg);">
                 <div class="container">
@@ -50,7 +55,6 @@
 </section><!-- End Hero -->
 
     <main id="main">
-
         <!-- ======= Featured Services Section ======= -->
         <section id="Articles" class="featured-services">
             <div class="container" data-aos="fade-up">
@@ -125,14 +129,10 @@
                     </div>
                     </div>
                 </div>
-
-
-
-
             </div>
             </div>
         </section><!-- End Featured Services Section -->
-    
+  
     <section id="Courses" class="testimonials">
         <div class="container" data-aos="fade-up">
 
@@ -207,7 +207,7 @@
 
             <div class="row">
                 <div class="col-lg-6" data-aos="fade-right">
-                    <img style="height:450px;" src="assets/images/about.jpg" class="img-fluid" alt="">
+                    <img style="height:450px;" src="assets/images/slide/p6.jpg" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
                     <h3 style="direction:rtl;font-family:Arial">على مدار سنوات ومقابلات العيادة والعمليات تعلمنا منكم ان المعلومة الطبية الخاطئة على الانترنت ندفع ثمنها باهظا من صحتنا البدنية والنفسية وبعد ان وجدنا الكثير من المعلومات المشتته وكلفت حالتنا الكثير من الوقت والجهد وتركتنا كأطباء بخيبة أمل لعدم تناسقها مع المعلومات الطبية الصحيحة رغم ثقة الحالات بها ومقارنتها بنصيحة الطبيب .</h3>
@@ -237,7 +237,7 @@
 
                 <div class="section-title">
                     <h2>نجاحاتنا</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    <p></p>
                 </div>
 
                 <div class="gallery-slider swiper">
@@ -260,89 +260,13 @@
 
        
         <!-- ======= Contact Section ======= -->
-        <section id="contact" class="contact">
-            <div class="container">
-
-                <div class="section-title">
-                    <h2>تواصل معنا</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-                </div>
-
-            </div>
+    @Html.Partial("~/Views/ArticleFront/EmailPartial.cshtml")
 
 
 
-    @*<div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
-        src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=giza&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-    </iframe><a href="https://gachanox.io/"></a></div><style>.mapouter{position:relative;text-align:right;width:100%;height:400px;}.gmap_canvas 
-    {overflow:hidden;background:none!important;width:100%;height:400px;}.gmap_iframe {width:100%!important;height:400px!important;}</style></div>*@
 
-        <div class="container">
 
-                <div class="row mt-5">
 
-                    <div class="col-lg-12">
-
-                    @*    <div class="row">
-                            <div class="col-md-12">
-                                <div class="info-box">
-                                    <i class="bx bx-map"></i>
-                                    <h3>Our Address</h3>
-                                    <p>hadayk october, Giza, Egypt</p>
-                                </div>
-                            </div>*@
-                            <div class="col-md-12">
-                                <div class="info-box mt-4">
-                                    <i class="bx bx-envelope"></i>
-                                    <h3>Email Us</h3>
-                                    <p>info@example.com<br>contact@example.com</p>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="info-box mt-4">
-                                    <i class="bx bx-phone-call"></i>
-                                    <h3>Call Us</h3>
-                                <p>01263541541<br>01005217612 </p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    @*<div class="col-lg-6">
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                            <div class="row">
-                                <div class="col-md-6 form-group">
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
-                                </div>
-                                <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
-                                </div>
-                            </div>
-                            <div class="form-group mt-3">
-                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
-                            </div>
-                            <div class="form-group mt-3">
-                                <textarea class="form-control" name="message" rows="7" placeholder="Message" required=""></textarea>
-                            </div>
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
-                            <div class="text-center"><button type="submit">Send Message</button></div>
-                        </form>
-                    </div>
-
-                </div>
-
-            </div>*@
-        </section>
-        <!-- End Contact Section -->
-        </div>
-        </div>
-    </main>
-    <!-- End #main -->
 
 
 

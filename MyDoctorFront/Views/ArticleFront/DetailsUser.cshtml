@@ -1,0 +1,38 @@
+﻿@model MyDoctorAPI.Models.Article
+
+@{
+    ViewData["Title"] = "Details";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div style="background-color:rgb(247,247,247);" class="col-lg-12 passion-grid-item-info  mt-lg-3 mt-5 ml-lg-2">
+    <h6 class="title-subw3hny">@Html.DisplayFor(model => model.Title)</h6>
+    @*<h3 class="title-w3l mb-4"> @Html.DisplayFor(model => model.)</h3>*@
+    <div class="passion-grid-item-pic mt-lg-3">
+        <img class="col-lg-7" src=" @Html.DisplayFor(model => model.ArticleImg)" alt="paayz">
+    </div>
+    <br />
+    <h6 class="title-subw3hny">
+        @Html.DisplayFor(model => model.PublicationDate)
+    </h6>
+    <h6 class="title-subw3hny">
+        @Html.DisplayFor(model => model.OurArticle)
+
+    </h6>
+    @{
+        var x = @Html.DisplayFor(model => model.ArticleVideo);
+    }
+    <iframe width="560" height="315" id="myIframe" src=@x title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    @*<a class="btn btn-primary btn-style mt-lg-4 mt-4" asp-action="Index">↩ </a>*@
+    <br />
+    <hr />
+</div>
+<script>
+    document.getElementById("myIframe").src = x;
+</script>

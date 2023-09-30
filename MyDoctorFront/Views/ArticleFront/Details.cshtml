@@ -10,34 +10,55 @@
 <br />
 
 <div style="background-color:rgb(247,247,247);" class="col-lg-12 passion-grid-item-info  mt-lg-3 mt-5 ml-lg-2">
-    <h6 class="title-subw3hny">@Html.DisplayFor(model => model.Title)</h6>
+    @*<h6 class="title-subw3hny">@Html.DisplayFor(model => model.Title)</h6>*@
 
 
-    <h3 class="title-w3l mb-4"> @Html.DisplayFor(model => model.Title)</h3>
-    <div class="passion-grid-item-pic mt-lg-3">
-        <img class="col-lg-7" src=" @Html.DisplayFor(model => model.ArticleImg)" alt="paayz">
-
-    </div>
-    <br />
-    <h4 class=" mb-4" style="font-family:'Global Sans Serif'"> @Html.DisplayFor(model => model.CreationDate)</h4>
-    <h2 class="mt-3 pr-lg-3">
-    </h2>
-
+    <h3 style="text-align:center" class="title-w3l mb-4"> @Html.DisplayFor(model => model.Title)</h3>
     <h6 class="title-subw3hny">
         @Html.DisplayFor(model => model.PublicationDate)
     </h6>
-    <h6 class="title-subw3hny">
-        @Html.DisplayFor(model => model.Status)
+    <div class="passion-grid-item-pic mt-lg-3">
+        <img class="col-lg-12" style="height:500px" src=" @Html.DisplayFor(model => model.ArticleImg)" alt="paayz">
+
+    </div>
+    <br />
+    @if (User.IsInRole("Admin") || User.IsInRole("Writer"))
+{
+    <h4 class=" mb-4" style="font-family:'Global Sans Serif'"> @Html.DisplayFor(model => model.CreationDate)</h4>
+    <h2 class="mt-3 pr-lg-3">
+    </h2>
+        <h6 style="text-align:center"  class="title-subw3hny">
+            @Html.DisplayFor(model => model.Status)
+        </h6>
+        <h6 style="text-align:center" class="title-subw3hny">
+            @Html.DisplayFor(model => model.Writer.Name)
+        </h6>
+}
+    <h6 style="text-align:center" class="title-subw3hny">
+        @Html.DisplayFor(model => model.ArticleType)
     </h6>
-    <h6 class="title-subw3hny">
-        @Html.DisplayFor(model => model.Writer.Name)
-    </h6>
+   
+   
     <h6 class="title-subw3hny">
         @Html.DisplayFor(model => model.OurArticle)
     </h6>
-
-    <a class="btn btn-primary btn-style mt-lg-4 mt-4" asp-action="Index">↩ </a>
+    @{
+        var x = @Html.DisplayFor(model => model.ArticleVideo);
+      
+        var v = 2;
+    }
+    <center> <iframe width="700" height="315" id="myIframe" src=@x title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></center>
+   
+    @*<a class="btn btn-primary btn-style mt-lg-4 mt-4" asp-action="Index">↩ </a>*@
 
     <br />
     <hr />
+
+    @if (User.IsInRole("Admin"))
+    {
+        <a class="btn btn-style btn-white btn-primary" asp-controller="ArticleFront" asp-action="NotApprovedArticles"  >back</a>
+    }
 </div>
+<script>
+    document.getElementById("myIframe").src = x;
+</script>

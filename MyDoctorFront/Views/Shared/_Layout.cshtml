@@ -1,9 +1,11 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - MyDoctorطبيبتي</title>
+    <link rel="icon" type="image/x-icon" href="~/assets/images/logo.png">
 
     <meta content="" name="description">
     <meta content="" name="keywords">
@@ -81,7 +83,45 @@
                             <li><a href="#">Drop Down 4</a></li>
                         </ul>
                     </li>*@
+                    @if (!User.IsInRole("Admin") || User.IsInRole("Writer"))
+                        {
                     <li><a class="nav-link scrollto" href="#contact">اتصل بنا</a></li>
+                        }
+                    @if (User.IsInRole("Admin") || User.IsInRole("Writer"))
+                    {
+                        @*   <li class="nav-item">
+                            <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello!</a>
+                        </li>*@
+                        <li class="nav-link scrollto">
+                            <form id="logoutForm" class="form-inline" asp-controller="LoginFront" asp-action="SignOut">
+                                <button id="logout" type="submit" class="btn btn-danger">Logout</button>
+                            </form>
+                        </li>
+
+                    }
+                    @if (User.IsInRole("Admin"))
+                        {
+                        <li class="nav-link scrollto">
+                                <form id="logoutForm" class="form-inline" asp-controller="LoginFront" asp-action="AdminPanel">
+                                    <button id="logout" type="submit" class="nav-link btn btn-link text-dark border-0">Admin panel</button>
+                                </form>
+                            </li>
+                        }
+                    @if (User.IsInRole("Writer"))
+                    {
+                        <li class="nav-link scrollto">
+                            <form id="logoutForm" class="form-inline" asp-controller="LoginFront" asp-action="WriterPanel">
+                                <button id="logout" type="submit" class="nav-link btn btn-link text-dark border-0">Writer Panel</button>
+                            </form>
+                        </li>
+                    }
+
+                       
+                        
+                        
+
+                    
+                 
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -131,8 +171,14 @@
                             <li><i class="bx bx-chevron-right"></i> <a href="~/#about">من نحن</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="#">الصور</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="#contact">اتصل بنا</a></li>
-                            <a class="btn btn-style btn-white btn-primary" asp-area="" asp-controller="LoginFront" asp-action="AdminOrWriter">Staff</a>
+                            @if (!User.IsInRole("Admin") && !User.IsInRole("Writer"))
 
+                            { 
+
+                                <a class="btn btn-style btn-white btn-primary" asp-area="" asp-controller="LoginFront" asp-action="AdminOrWriter">Staff</a>
+
+                               
+                            }
 
                  
                         </ul>

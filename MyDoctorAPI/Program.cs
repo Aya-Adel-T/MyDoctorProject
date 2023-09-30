@@ -29,6 +29,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
     builder.Services.AddScoped<IRepository<Writer>, WriterService>();
+    builder.Services.AddScoped<IRepository<UserEmail>, EmailAddressService>();
     builder.Services.AddScoped<IArticle, ArticleService>();
     builder.Services.AddScoped<ILoginService, LoginService>();
 //CORS policy
@@ -58,11 +59,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+
 app.UseStaticFiles();
 
 app.UseHttpsRedirection();

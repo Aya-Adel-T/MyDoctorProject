@@ -30,9 +30,13 @@
                             <h2 class="title-subw3hny"> تاريخ الانشاء: @Html.DisplayFor(modelItem => item.CreationDate)</h2>
                             <h2 class="title-subw3hny"> اسم الكاتب: @Html.DisplayFor(modelItem => item.Writer.Name)</h2>
 @*                        <h2 class="title-subw3hny"> @Html.DisplayFor(modelItem => item.OurArticle)</h2>
+
 *@                            <a class="btn btn-primary btn-style mt-lg-5 mt-4" asp-action="Details" asp-route-id="@item.Id">Details</a>
                             <a class="btn btn-primary btn-style mt-lg-5 mt-4" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        @if (User.IsInRole("Admin"))
+                        {
                             <a class="btn btn-primary btn-style mt-lg-5 mt-4" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        }
                             <br />
                             <hr />
                         </div>
