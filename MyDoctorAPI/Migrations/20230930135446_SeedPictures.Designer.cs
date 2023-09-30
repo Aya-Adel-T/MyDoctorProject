@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyDoctorAPI.Data;
 
@@ -11,9 +12,11 @@ using MyDoctorAPI.Data;
 namespace MyDoctorAPI.Migrations
 {
     [DbContext(typeof(MyDoctorAPIContext))]
-    partial class MyDoctorAPIContextModelSnapshot : ModelSnapshot
+    [Migration("20230930135446_SeedPictures")]
+    partial class SeedPictures
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,14 +54,14 @@ namespace MyDoctorAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "95b45bbb-5fa4-464e-8f9f-cb0cc6e7f8d8",
+                            Id = "8d498880-0e88-42e2-9ab0-20b78e11c7c9",
                             ConcurrencyStamp = "1",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "89676729-bb53-4714-8200-ca0ef7bfd4a9",
+                            Id = "b4eb0142-0858-4e2e-8dee-b947183bf328",
                             ConcurrencyStamp = "3",
                             Name = "Writer",
                             NormalizedName = "Writer"
@@ -374,20 +377,6 @@ namespace MyDoctorAPI.Migrations
                             Name = "Admin",
                             Section = "Nga7atna",
                             Type = "Nga7at6"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Name = "Admin",
-                            Section = "Nga7atna",
-                            Type = "Nga7at7"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Name = "Admin",
-                            Section = "Nga7atna",
-                            Type = "Nga7at8"
                         });
                 });
 

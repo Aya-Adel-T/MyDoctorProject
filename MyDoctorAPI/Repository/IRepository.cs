@@ -7,5 +7,7 @@
         public void Insert(T t);
         public void Update(T entity);
         public T Delete(int id);
+        public string UploadImage(IFormFile Img, string NewsTitle);
+
     }
 }

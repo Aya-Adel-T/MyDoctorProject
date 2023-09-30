@@ -1,0 +1,57 @@
+﻿@model MyDoctorAPI.Models.Picture
+
+@{
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h4 style="text-align:center"> add the image</h4>
+<hr />
+<div class="container" style=" display: flex;justify-content: center;">
+    <div class="col-md-4">
+        <form asp-action="addNewsImage" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                <select asp-for="Type" class="form-control">
+                    <option value="Slider1">Slider 1</option>
+                    <option value="Slider2">Slider 2</option>
+                    <option value="Slider3">Slider 3</option>
+                    <option value="AboutUs">About Us </option>
+                    <option value="Nga7at1">nga7atna 1</option>
+                    <option value="Nga7at2">nga7atna 2</option>
+                    <option value="Nga7at3">nga7atna 3</option>
+                    <option value="Nga7at4">nga7atna 4</option>
+                    <option value="Nga7at5">nga7atna 5</option>
+                    <option value="Nga7at6">nga7atna 6</option>
+                    <option value="Nga7at7">nga7atna 7</option>
+                    <option value="Nga7at8">nga7atna 8</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Section" class="control-label"></label>
+                <select asp-for="Section" class="form-control">
+                    <option value="Slider">Slider Section</option>
+                    <option value="About">About Us Section </option>
+                    <option value="Nga7atna">nga7atna Section</option>
+   
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input type="file" name="file" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" asp-controller="Pictures" asp-action="addImage" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

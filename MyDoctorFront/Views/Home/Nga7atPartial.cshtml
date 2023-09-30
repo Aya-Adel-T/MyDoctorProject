@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MyDoctorAPI.Models.Picture>
+ 
+               
+<section id="gallery" class="gallery">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>نجاحاتنا</h2>
+            <p></p>
+        </div>
+     
+        <div class="gallery-slider swiper">
+           
+            <div class="swiper-wrapper align-items-center">
+                @foreach (var item in Model)
+                {
+                    if (item.Type == "Nga7at1")
+                    {
+                        <div class="swiper-slide"><a class="gallery-lightbox" href="@item.Name"><img src="@item.Name" class="img-fluid" alt=""></a></div>
+                    }
+                    if (item.Type == "Nga7at2")
+                    {
+                        <div class="swiper-slide"><a class="gallery-lightbox" href="@item.Name"><img src="@item.Name" class="img-fluid" alt=""></a></div>
+                    }
+                    if (item.Type == "Nga7at3")
+                    {
+                        <div class="swiper-slide"><a class="gallery-lightbox" href="@item.Name"><img src="@item.Name" class="img-fluid" alt=""></a></div>
+                    }
+                    if (item.Type == "Nga7at4")
+                    {
+                        <div class="swiper-slide"><a class="gallery-lightbox" href="@item.Name"><img src="@item.Name" class="img-fluid" alt=""></a></div>
+                    }
+                    if (item.Type == "Nga7at5")
+                    {
+                        <div class="swiper-slide"><a class="gallery-lightbox" href="@item.Name"><img src="@item.Name" class="img-fluid" alt=""></a></div>
+                    }
+                    if (item.Type == "Nga7at6")
+                    {
+                        <div class="swiper-slide"><a class="gallery-lightbox" href="@item.Name"><img src="@item.Name" class="img-fluid" alt=""></a></div>
+                    }
+                    if (item.Type == "Nga7at7")
+                    {
+                        <div class="swiper-slide"><a class="gallery-lightbox" href="@item.Name"><img src="@item.Name" class="img-fluid" alt=""></a></div>
+                    }
+                    if (item.Type == "Nga7at8")
+                    {
+                        <div class="swiper-slide"><a class="gallery-lightbox" href="@item.Name"><img src="@item.Name" class="img-fluid" alt=""></a></div>
+                    }
+             
+                }
+            </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+</section>

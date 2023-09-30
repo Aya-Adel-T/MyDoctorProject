@@ -4,7 +4,6 @@ namespace MyDoctorAPI.Repository
 {
     public interface IArticle : IRepository<Article>
     {
-        public string UploadImage(IFormFile Img, string NewsTitle);
         public List<Article> GetMiniHawa2();
         public List<Article> GetZawagNaks();
         public List<Article> GetHatkoniOm();

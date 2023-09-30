@@ -30,6 +30,7 @@ builder.Services.AddSwaggerGen();
 
     builder.Services.AddScoped<IRepository<Writer>, WriterService>();
     builder.Services.AddScoped<IRepository<UserEmail>, EmailAddressService>();
+    builder.Services.AddScoped<IRepository<Picture>, PictureService>();
     builder.Services.AddScoped<IArticle, ArticleService>();
     builder.Services.AddScoped<ILoginService, LoginService>();
 //CORS policy

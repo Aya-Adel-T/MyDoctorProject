@@ -1,0 +1,76 @@
+﻿
+@model IEnumerable<MyDoctorAPI.Models.Picture>
+
+@{
+    var slider1 = Model.FirstOrDefault(image => image.Type == "Slider1")?.Name;
+    var slider2 = Model.FirstOrDefault(image => image.Type == "Slider2")?.Name;
+}
+<section id="hero">
+
+
+    @*  @{
+
+    var backgroundImage = !string.IsNullOrEmpty(imageName) ? Url.Content("~/path/to/images/" + imageName) : string.Empty;
+    }
+
+    <div class="carousel-item active" style="background-image: url('@backgroundImage')">
+    <!-- Other content within the carousel item -->
+    </div>*@
+
+
+    <div id="heroCarousel" data-bs-interval="1500" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+            <!-- Slide 1 -->
+              @foreach(var item in Model){
+                if (item.Type == "Slider1")
+                {
+                <div class="carousel-item active" style="background-image: url(@item.Name);">
+                    }
+                <div class="container">
+                    <p>رفقاؤك في رحلتك </p>
+                    <h2>للأنوثة</h2>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-znsk0h0hkHAad31dZfL0ak8ygEtSEPSGA_8pOd2yIo-Mtg/viewform" target="_blank" class="btn-get-started scrollto">احجز استشارتك الأن </a>
+                </div>
+            </div>
+            }
+            <!-- Slide 2 -->
+    
+                if (item.Type == "Slider2")
+                {
+                    <div class="carousel-item" style="background-image: url(@item.Name);">
+                <div class="container">
+                    <p>رفقاؤك في رحلتك </p>
+                    <h2>للأمومة </h2>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-znsk0h0hkHAad31dZfL0ak8ygEtSEPSGA_8pOd2yIo-Mtg/viewform" target="_blank" class="btn-get-started scrollto">احجز استشارتك الأن </a>
+                </div>
+            </div>
+                }
+            <!-- Slide 3 -->
+  
+                if (item.Type == "Slider3")
+                {
+                    <div class="carousel-item" style="background-image: url(@item.Name)">
+                <div class="container">
+                    <p>رفقاؤك في رحلتك </p>
+                    <h2>للنجاح </h2>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-znsk0h0hkHAad31dZfL0ak8ygEtSEPSGA_8pOd2yIo-Mtg/viewform" target="_blank" class="btn-get-started scrollto">احجز استشارتك الأن</a>
+                </div>
+            </div>
+                }
+                }
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+    </div>
+</section><!-- End Hero -->

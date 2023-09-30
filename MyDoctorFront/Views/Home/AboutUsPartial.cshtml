@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MyDoctorAPI.Models.Picture>
+
+@{
+    var slider1 = Model.FirstOrDefault(image => image.Type == "AboutUs")?.Name;
+}
+ <!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>من نحن </h2>
+            <p>طبيبتي أكبر منصة طبية عربية موثقة علميا تهتم بالفتاة في كل مراحل حياتها.
+            <p>                        تم تأسيسها في 2014 على يد د/ريهام الشال طبيبة وجراحة النساء والتوليد والحقن المجهري وفريقنا المهتم بالارتقاء بصحة المرأة النفسية والبدنية ورحلتها للأمومة والنجاح</p>
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6" data-aos="fade-right">
+                @*<img style="height:450px;" src="@Html.DisplayFor(slider1 => slider1.FirstOrDefault().Name)" class="img-fluid" alt="">*@
+                @foreach(var item in Model){
+                    if (item.Type == "AboutUs"){
+                <img style="height:450px;" src="@item.Name" class="img-fluid" alt="">
+                }}
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
+                <h3 style="direction:rtl;font-family:Arial">على مدار سنوات ومقابلات العيادة والعمليات تعلمنا منكم ان المعلومة الطبية الخاطئة على الانترنت ندفع ثمنها باهظا من صحتنا البدنية والنفسية وبعد ان وجدنا الكثير من المعلومات المشتته وكلفت حالتنا الكثير من الوقت والجهد وتركتنا كأطباء بخيبة أمل لعدم تناسقها مع المعلومات الطبية الصحيحة رغم ثقة الحالات بها ومقارنتها بنصيحة الطبيب .</h3>
+                <p style="direction:rtl" class="fst-italic">
+                    فنشأت من بين الصخور زهرة طبيبتي لتكون معك في رحلتك
+                </p>
+                <ul class="mnn7n">
+                    <li><a asp-controller="ArticleFront" asp-action="Getsingle" class="bi bi-check-circle"> في عالم الانوثة </a> </li>
+                    <li><a asp-controller="ArticleFront" asp-action="Getsingle" class="bi bi-check-circle"> في الحياة الزوجية     </a> </li>
+                    <li><a asp-controller="ArticleFront" asp-action="Getsingle" class="bi bi-check-circle">  في البحث عن الانجاب   </a> </li>
+                    <li><a asp-controller="ArticleFront" asp-action="Getsingle" class="bi bi-check-circle"> في رحلة الأمومة والحمل </a>  </li>
+                    <li><a asp-controller="ArticleFront" asp-action="Getsingle" class="bi bi-check-circle">  في يوم ولادتك         </a> </li>
+                    <li><a asp-controller="ArticleFront" asp-action="Getsingle" class="bi bi-check-circle">  في رحلتك للنجاح      </a>  </li>
+                </ul>
+                <p>
+
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section><!-- End About Us Section -->

@@ -4,45 +4,85 @@
     //Layout = "~/Views/_Layout.cshtml";
 
 }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 <br /><br /><br /><br /><br /><br />
+<style>
 
+    img {
+        height: 150px;
+    }
+
+    .card {
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+        transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+        padding: 14px;
+        cursor: pointer;
+    }
+
+        .card:hover {
+            transform: scale(1.11);
+            box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+        }
+
+        .card img {
+            transform: scale(1);
+            box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+        }
+
+        .card:hover img {
+            opacity: 0.8;
+        }
+
+    .hamada:hover .member-icon {
+        margin-top: 5px;
+    }
+
+    .member-icon {
+        margin-top: -40px;
+    }
+
+    .animate {
+        transition: all 0.3s ease-in-out;
+    }
+
+</style>
     
     <div class="container"> 
         <p style="text-align:center">
-            <a asp-action="Create">Create New</a>
+            <a style="font-size:50px" asp-action="Create">Create New</a>
         </p>
     </div>
-    <section class="w3l-passion-mid-sec">
-        <div class="container">
-            <div class="container">
-                <div class="row w3l-passion-mid-grids">
-
-                    <br />
-
-                    @foreach (var item in Model.Reverse())
+<div class="row">
+    @foreach (var item in Model.Reverse())
+    {
+        <div class="col-sm-6 p-2 mb-5   ">
+            <div class="card shadow-lg">
+                <div class="hamada">
+                    <h3 class="title-subw3hny" style="text-align:center"> @Html.DisplayFor(modelItem => item.Title)</h3>
+                    <img src="@Html.DisplayFor(modelItem => item.ArticleImg)" class="card-img-top" alt="fdg">
+                    <div class="card-body" style="height: 180px;">
+                        <h4 class="title-subw3hny"> تاريخ النشر: @Html.DisplayFor(modelItem => item.PublicationDate) </h4>
+                        <h4 class="title-subw3hny"> الحاله: @Html.DisplayFor(modelItem => item.Status)</h4>
+                        <h4 class="title-subw3hny"> تاريخ الانشاء: @Html.DisplayFor(modelItem => item.CreationDate)</h4>
+                        <h4 class="title-subw3hny"> اسم الكاتب: @Html.DisplayFor(modelItem => item.Writer.Name)</h4>
+                        <p class="card-text" style=" height:60px;line-height:1.2em;overflow:hidden">
+                            @Html.DisplayFor(modelItem => item.OurArticle)
+                        </p>
+                    </div>
+                    <a class="btn btn-primary btn-style mt-lg-5 mt-4" asp-controller="ArticleFront" asp-action="Details" asp-route-id="@item.Id">أقرئي المزيد</a>
+                    <a class="btn btn-primary btn-style mt-lg-5 mt-4" asp-controller="ArticleFront" asp-action="ApproveArticles" asp-route-id="@item.Id">Approve Article</a>
+                    <a class="btn btn-primary btn-style mt-lg-5 mt-4" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    @if (User.IsInRole("Admin"))
                     {
-
-                        <div style="background-color:oldlace;" class="col-lg-8 passion-grid-item-info  mt-lg-3 mt-5 ml-lg-5">
-                        <h2 class="title-subw3hny" style="text-align:center"> @Html.DisplayFor(modelItem => item.Title)</h2>
-                        <img class="col-lg-7" src=" @Html.DisplayFor(model => item.ArticleImg)" alt="paayz">
-                            <h2 class="title-subw3hny"> تاريخ النشر: @Html.DisplayFor(modelItem => item.PublicationDate) </h2>
-                        <h2 class="title-subw3hny"> الحاله: @Html.DisplayFor(modelItem => item.Status)</h2>
-                            <h2 class="title-subw3hny"> تاريخ الانشاء: @Html.DisplayFor(modelItem => item.CreationDate)</h2>
-                            <h2 class="title-subw3hny"> اسم الكاتب: @Html.DisplayFor(modelItem => item.Writer.Name)</h2>
-@*                        <h2 class="title-subw3hny"> @Html.DisplayFor(modelItem => item.OurArticle)</h2>
-
-*@                            <a class="btn btn-primary btn-style mt-lg-5 mt-4" asp-action="Details" asp-route-id="@item.Id">Details</a>
-                            <a class="btn btn-primary btn-style mt-lg-5 mt-4" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <a class="btn btn-primary btn-style mt-lg-5 mt-4" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                        }
-                            <br />
-                            <hr />
-                        </div>
+                        <a class="btn btn-primary btn-style mt-lg-5 mt-4" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                     }
-
                 </div>
             </div>
         </div>
-    </section>
+
+    }
+</div>
+

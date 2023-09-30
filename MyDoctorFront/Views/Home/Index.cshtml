@@ -1,58 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model MyDoctorFront.Helpers.MyMainViewModel
 
 <!-- ======= Hero Section ======= -->
 <br />
 <br />
 <br />
-<section id="hero">
-   
-    <div id="heroCarousel" data-bs-interval="1500" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
-        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+@Html.Partial("SliderPartial", Model.Pictures)
 
-        <div class="carousel-inner" role="listbox">
-
-            <!-- Slide 1 -->
-            <div class="carousel-item active" style="background-image: url(assets/images/slide/p6.jpg)">
-                <div class="container">
-                    <p>رفقاؤك في رحلتك </p>
-                    <h2>للأنوثة</h2>
-                    <a asp-controller="Paypal" asp-action="Index1" class="btn-get-started scrollto">احجز استشارتك الأن </a>
-                </div>
-            </div>
-          
-            <!-- Slide 2 -->
-            <div class="carousel-item" style="background-image: url(assets/images/slide/p7.jpg);">
-                <div class="container">
-                    <p>رفقاؤك في رحلتك </p>
-                    <h2>للأمومة </h2>
-                    <a asp-controller="Paypal" asp-action="Index1" class="btn-get-started scrollto">احجز استشارتك الأن </a>
-                </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="carousel-item" style="background-image: url(assets/images/slide/slide-3.jpg)">
-                <div class="container">
-                    <p>رفقاؤك في رحلتك </p>
-                    <h2>للنجاح </h2>
-                    <a asp-controller="Paypal" asp-action="Index1" class="btn-get-started scrollto">احجز استشارتك الأن</a>
-                </div>
-            </div>
-
-        </div>
-
-        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-        </a>
-
-        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-        </a>
-
-    </div>
-</section><!-- End Hero -->
 
     <main id="main">
         <!-- ======= Featured Services Section ======= -->
@@ -194,73 +151,16 @@
 
         </div>
     </section><!-- End Testimonials Section -->
-    <!-- ======= About Us Section ======= -->
-    <section id="about" class="about">
-        <div class="container" data-aos="fade-up">
+    @Html.Partial("AboutUsPartial", Model.Pictures)
 
-            <div class="section-title">
-                <h2>من نحن </h2>
-                <p>طبيبتي أكبر منصة طبية عربية موثقة علميا تهتم بالفتاة في كل مراحل حياتها.
-                <p>                        تم تأسيسها في 2014 على يد د/ريهام الشال طبيبة وجراحة النساء والتوليد والحقن المجهري وفريقنا المهتم بالارتقاء بصحة المرأة النفسية والبدنية ورحلتها للأمومة والنجاح</p>
-                </p>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <img style="height:450px;" src="assets/images/slide/p6.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
-                    <h3 style="direction:rtl;font-family:Arial">على مدار سنوات ومقابلات العيادة والعمليات تعلمنا منكم ان المعلومة الطبية الخاطئة على الانترنت ندفع ثمنها باهظا من صحتنا البدنية والنفسية وبعد ان وجدنا الكثير من المعلومات المشتته وكلفت حالتنا الكثير من الوقت والجهد وتركتنا كأطباء بخيبة أمل لعدم تناسقها مع المعلومات الطبية الصحيحة رغم ثقة الحالات بها ومقارنتها بنصيحة الطبيب .</h3>
-                    <p style="direction:rtl" class="fst-italic">
-                        فنشأت من بين الصخور زهرة طبيبتي لتكون معك في رحلتك
-                    </p>
-                    <ul class="mnn7n">
-                        <li><a asp-controller="ArticleFront" asp-action="Getsingle" class="bi bi-check-circle"> في عالم الانوثة </a> </li>
-                        <li><a asp-controller="ArticleFront" asp-action="Getsingle" class="bi bi-check-circle"> في الحياة الزوجية     </a> </li>
-                        <li><a asp-controller="ArticleFront" asp-action="Getsingle" class="bi bi-check-circle">  في البحث عن الانجاب   </a> </li>
-                        <li><a asp-controller="ArticleFront" asp-action="Getsingle" class="bi bi-check-circle"> في رحلة الأمومة والحمل </a>  </li>
-                        <li><a asp-controller="ArticleFront" asp-action="Getsingle" class="bi bi-check-circle">  في يوم ولادتك         </a> </li>
-                        <li><a asp-controller="ArticleFront" asp-action="Getsingle" class="bi bi-check-circle">  في رحلتك للنجاح      </a>  </li>
-                    </ul>
-                    <p>
-
-                    </p>
-                </div>
-            </div>
-
-        </div>
-    </section><!-- End About Us Section -->
-    
         <!-- ======= Gallery Section ======= -->
-        <section id="gallery" class="gallery">
-            <div class="container" data-aos="fade-up">
+    @Html.Partial("Nga7atPartial", Model.Pictures)
 
-                <div class="section-title">
-                    <h2>نجاحاتنا</h2>
-                    <p></p>
-                </div>
-
-                <div class="gallery-slider swiper">
-                    <div class="swiper-wrapper align-items-center">
-                    <div class="swiper-slide"><a class="gallery-lightbox" href="assets/images/courses/course1.jpg"><img src="~/assets/images/gallery/gallery-1.jpg" class="img-fluid" alt=""></a></div>
-                    <div class="swiper-slide"><a class="gallery-lightbox" href="assets/images/gallery/gallery-2.jpg"><img src="~/assets/images/gallery/gallery-2.jpg" class="img-fluid" alt=""></a></div>
-                    <div class="swiper-slide"><a class="gallery-lightbox" href="assets/images/gallery/gallery-3.jpg"><img src="~/assets/images/gallery/gallery-3.jpg" class="img-fluid" alt=""></a></div>
-                    <div class="swiper-slide"><a class="gallery-lightbox" href="assets/images/gallery/gallery-4.jpg"><img src="~/assets/images/gallery/gallery-4.jpg" class="img-fluid" alt=""></a></div>
-                    <div class="swiper-slide"><a class="gallery-lightbox" href="assets/images/gallery/gallery-5.jpg"><img src="~/assets/images/gallery/gallery-5.jpg" class="img-fluid" alt=""></a></div>
-                    <div class="swiper-slide"><a class="gallery-lightbox" href="assets/images/gallery/gallery-6.jpg"><img src="~/assets/images/gallery/gallery-6.jpg" class="img-fluid" alt=""></a></div>
-                    <div class="swiper-slide"><a class="gallery-lightbox" href="assets/images/gallery/gallery-7.jpg"><img src="~/assets/images/gallery/gallery-7.jpg" class="img-fluid" alt=""></a></div>
-                    <div class="swiper-slide"><a class="gallery-lightbox" href="assets/images/gallery/gallery-8.jpg"><img src="~/assets/images/gallery/gallery-8.jpg" class="img-fluid" alt=""></a></div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-
-            </div>
-        </section><!-- End Gallery Section -->
+ <!-- End Gallery Section -->
   
-
        
         <!-- ======= Contact Section ======= -->
-    @Html.Partial("~/Views/ArticleFront/EmailPartial.cshtml")
+    @Html.Partial("EmailPartial", Model.Email)
 
 
 
@@ -270,7 +170,7 @@
 
 
 
-@*  <!-- ======= Testimonials Section ======= -->
+    @*  <!-- ======= Testimonials Section ======= -->
     <section id="News" class="testimonials">
         <div class="container" data-aos="fade-up">
 

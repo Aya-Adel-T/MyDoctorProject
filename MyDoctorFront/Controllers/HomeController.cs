@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FeliveryAdminPanel.Helpers;
+using Microsoft.AspNetCore.Mvc;
+using MyDoctorAPI.Models;
+using MyDoctorFront.Helpers;
 using MyDoctorFront.Models;
 using PayPal.Api;
 using System;
@@ -8,8 +11,7 @@ namespace MyDoctorFront.Controllers
 {
     public class HomeController : Controller
     {
-
-
+        APIClient _api = new APIClient();
         private readonly ILogger<HomeController> _logger;
         private IHttpContextAccessor httpContextAccessor;
         IConfiguration _configuration;
@@ -20,10 +22,13 @@ namespace MyDoctorFront.Controllers
             _configuration = iconfiguration;
         }
 
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-      
-            return View();
+            HttpClient Client = _api.Initial();
+            var ArticlesList = await Client.GetFromJsonAsync<List<Picture>>("api/Picture");
+            var mymain = new MyMainViewModel();
+            mymain.Pictures = ArticlesList;
+            return View(mymain);
         }
         public ActionResult Course()
         {

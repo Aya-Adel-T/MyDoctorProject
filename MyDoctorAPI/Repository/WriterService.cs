@@ -60,5 +60,9 @@ namespace MyDoctorAPI.Repository
             return writerData;
         }
 
+        public string UploadImage(IFormFile Img, string NewsTitle)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

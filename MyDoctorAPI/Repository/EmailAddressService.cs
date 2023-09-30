@@ -52,5 +52,10 @@ namespace MyDoctorAPI.Repository
         {
             throw new NotImplementedException();
         }
+
+        public string UploadImage(IFormFile Img, string NewsTitle)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

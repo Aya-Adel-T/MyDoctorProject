@@ -64,14 +64,14 @@
 
 
 <div class="row">
-    @foreach (var item in Model)
+    @foreach (var item in Model.Reverse())
     {
         <div class="col-sm-4 p-5 ">
             <div class="card shadow-lg">
                 <div class="hamada">
                     <img src="@Html.DisplayFor(modelItem => item.ArticleImg)" class="card-img-top" alt="fdg">
 
-                    <div class="card-body" style="height: 200px;">
+                    <div class="card-body" style="height: 180px;">
                         <h5 class="card-title">  @Html.DisplayFor(modelItem => item.Title)</h5>
                         <h6>  @Html.DisplayFor(modelItem => item.PublicationDate)</h6>
                         <p class="card-text" style=" height:60px;line-height:1.2em;overflow:hidden">
