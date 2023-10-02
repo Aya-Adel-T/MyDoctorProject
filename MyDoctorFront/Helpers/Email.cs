@@ -49,7 +49,7 @@ namespace MyDoctorFront.Helpers
             emailToAdmin.Body = new TextPart(TextFormat.Html)
             {
                 Text =
-                "This user Purchased the course" + " " + to
+                "This user Purchased the course دورة ولادة مطمئنة" + " " + to
 
             };
 
@@ -83,6 +83,36 @@ namespace MyDoctorFront.Helpers
             smtp.Disconnect(true);
         }
 
+        public void SuccessTshnogMhpli(string to)
+        {
+            var email = new MimeMessage();
+            email.From.Add(MailboxAddress.Parse(_config.GetSection("EmailUsername").Value));
+            email.To.Add(MailboxAddress.Parse(to));
+            email.Subject = "MY Doctor Your Course (دورة أسرار شفاء التشنج المهبلى اللاإرادى)";
+            email.Body = new TextPart(TextFormat.Html)
+            {
+                Text =
+               "دورة "
+            };
 
+
+            var emailToAdmin = new MimeMessage();
+            emailToAdmin.From.Add(MailboxAddress.Parse(_config.GetSection("EmailUsername").Value));
+            emailToAdmin.To.Add(MailboxAddress.Parse("Tbibtyclinic@gmail.com"));
+            emailToAdmin.Subject = "New Purchase";
+            emailToAdmin.Body = new TextPart(TextFormat.Html)
+            {
+                Text =
+                "This user Purchased the course دورة أسرار شفاء التشنج المهبلي اللاارادي" + " " + to
+
+            };
+
+            using var smtp = new SmtpClient();
+            smtp.Connect(_config.GetSection("EmailHost").Value, 587, SecureSocketOptions.StartTls);
+            smtp.Authenticate(_config.GetSection("EmailUsername").Value, _config.GetSection("EmailPassword").Value);
+            smtp.Send(email);
+            smtp.Send(emailToAdmin);
+            smtp.Disconnect(true);
+        }
     }
 }

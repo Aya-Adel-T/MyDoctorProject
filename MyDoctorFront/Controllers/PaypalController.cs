@@ -19,6 +19,13 @@ namespace PaypalCheckoutExample.Controllers
 
             return View();
         }
+        public IActionResult TshnogMhpli()
+        {
+            // ViewBag.ClientId is used to get the Paypal Checkout javascript SDK
+            ViewBag.ClientId = _paypalClient.ClientId;
+
+            return View();
+        }
         [HttpPost]
         public async Task<IActionResult> Order(CancellationToken cancellationToken)
         {
@@ -257,6 +264,10 @@ namespace PaypalCheckoutExample.Controllers
             return View();
         }
         public IActionResult SuccessAll()
+        {
+            return View();
+        }
+        public IActionResult SuccessTshnogMhpli()
         {
             return View();
         }

@@ -21,18 +21,13 @@ namespace MyDoctorFront.Controllers
             return View();
 
         }
-        //public async  Task<IActionResult> SendEmails()
-        //{
-        //    HttpClient Client = _api.Initial();
+        public  IActionResult SuccessTshnogMhpli(string Email)
+        {
+           
+                _email.SuccessTshnogMhpli(Email);
+           
+            return View("SendEmail");
 
-        //    var EmailsList = await Client.GetFromJsonAsync<List<UserEmail>>("api/UserEmailAddress");
-        //    foreach (var Email in EmailsList)
-        //    {
-        //        _email.SendEmailsWithArticle(Email.Email);
-
-        //    }
-        //    return View();
-
-        //}
+        }
     }
 }

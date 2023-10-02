@@ -83,10 +83,9 @@
                             <li><a href="#">Drop Down 4</a></li>
                         </ul>
                     </li>*@
-                    @if (!User.IsInRole("Admin") || User.IsInRole("Writer"))
-                        {
+                  
                     <li><a class="nav-link scrollto" href="#contact">اتصل بنا</a></li>
-                        }
+                        
                     @if (User.IsInRole("Admin"))
                     {
                         <li class="nav-link scrollto">

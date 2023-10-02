@@ -4,5 +4,6 @@
     {
         void SendEmail(string to);
         void SendEmailsWithArticle(string to);
+        void SuccessTshnogMhpli (string to);
     }
 }
