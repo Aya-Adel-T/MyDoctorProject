@@ -35,6 +35,11 @@ namespace MyDoctorFront.Controllers
             return View();
         }
 
+        public ActionResult Booking()
+        {
+            return View();
+        }
+
         #region Useless
         public ActionResult PaymentWithPaypal(string Cancel = null, string blogId = "", string PayerID = "", string guid = "")
         {

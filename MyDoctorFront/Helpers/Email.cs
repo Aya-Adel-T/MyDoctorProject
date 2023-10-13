@@ -74,7 +74,7 @@ namespace MyDoctorFront.Helpers
             email.Body = new TextPart(TextFormat.Html)
             {
                 Text = "تمت اضافة مقاله جديده على موقع طبيبتي <br>" +
-                "https://tbibti.azurewebsites.net/"
+                "http://tbibti.com/"
             };
             using var smtp = new SmtpClient();
             smtp.Connect(_config.GetSection("EmailHost").Value, 587, SecureSocketOptions.StartTls);
@@ -92,7 +92,15 @@ namespace MyDoctorFront.Helpers
             email.Body = new TextPart(TextFormat.Html)
             {
                 Text =
-               "دورة "
+              "نحن نثق بكما   <br>" +
+
+                "الدورة من هنا \n" +
+                "https://forms.gle/XKWWDz9QAFVoRmWf6<br>" +
+                "لتفعيل الإشتراك يرجى ارسال الإيميل الذى سيحدد لفتح دورة [ التشنج المهبلي الللارادي ] واتساب على \n <br>" +
+                "https://wa.me/201005217612 \n <br>" +
+                "سيتم إرسال كلمة المرور عليه \n <br>" +
+                "\n <br>" +
+                "وفقكم الله دائما و أحل عليكم بركته \n <br>"
             };
 
 

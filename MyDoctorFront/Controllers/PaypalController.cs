@@ -26,6 +26,57 @@ namespace PaypalCheckoutExample.Controllers
 
             return View();
         }
+        public IActionResult Estshara3yada()
+        {
+            // ViewBag.ClientId is used to get the Paypal Checkout javascript SDK
+            ViewBag.ClientId = _paypalClient.ClientId;
+
+            return View();
+        }
+        public IActionResult Kshf3yada()
+        {
+            // ViewBag.ClientId is used to get the Paypal Checkout javascript SDK
+            ViewBag.ClientId = _paypalClient.ClientId;
+
+            return View();
+        }
+        
+        public IActionResult Motap3t7aml()
+        {
+            // ViewBag.ClientId is used to get the Paypal Checkout javascript SDK
+            ViewBag.ClientId = _paypalClient.ClientId;
+
+            return View();
+        }
+        public IActionResult EstsharaOnlineEg()
+        {
+            // ViewBag.ClientId is used to get the Paypal Checkout javascript SDK
+            ViewBag.ClientId = _paypalClient.ClientId;
+
+            return View();
+        }
+        public IActionResult ThirtyFive()
+        {
+            // ViewBag.ClientId is used to get the Paypal Checkout javascript SDK
+            ViewBag.ClientId = _paypalClient.ClientId;
+
+            return View();
+        }
+        public IActionResult FiftyFive()
+        {
+            // ViewBag.ClientId is used to get the Paypal Checkout javascript SDK
+            ViewBag.ClientId = _paypalClient.ClientId;
+
+            return View();
+        }
+        public IActionResult OneHundred()
+        {
+            // ViewBag.ClientId is used to get the Paypal Checkout javascript SDK
+            ViewBag.ClientId = _paypalClient.ClientId;
+
+            return View();
+        }
+
         [HttpPost]
         public async Task<IActionResult> Order(CancellationToken cancellationToken)
         {
@@ -208,6 +259,81 @@ namespace PaypalCheckoutExample.Controllers
                 return BadRequest(error);
             }
         }
+        public async Task<IActionResult> Order7(CancellationToken cancellationToken)
+        {
+            try
+            {
+                // set the transaction price and currency
+                var price = "35.00";
+                var currency = "USD";
+
+                // "reference" is the transaction key
+                var reference = "INV001";
+
+                var response = await _paypalClient.CreateOrder(price, currency, reference);
+
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+                var error = new
+                {
+                    e.GetBaseException().Message
+                };
+
+                return BadRequest(error);
+            }
+        }
+        public async Task<IActionResult> Order8(CancellationToken cancellationToken)
+        {
+            try
+            {
+                // set the transaction price and currency
+                var price = "55.00";
+                var currency = "USD";
+
+                // "reference" is the transaction key
+                var reference = "INV001";
+
+                var response = await _paypalClient.CreateOrder(price, currency, reference);
+
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+                var error = new
+                {
+                    e.GetBaseException().Message
+                };
+
+                return BadRequest(error);
+            }
+        }
+        public async Task<IActionResult> Order9(CancellationToken cancellationToken)
+        {
+            try
+            {
+                // set the transaction price and currency
+                var price = "100.00";
+                var currency = "USD";
+
+                // "reference" is the transaction key
+                var reference = "INV001";
+
+                var response = await _paypalClient.CreateOrder(price, currency, reference);
+
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+                var error = new
+                {
+                    e.GetBaseException().Message
+                };
+
+                return BadRequest(error);
+            }
+        }
         [HttpPost]
         public async Task<IActionResult> Orderconsultant(CancellationToken cancellationToken)
         {
@@ -286,5 +412,7 @@ namespace PaypalCheckoutExample.Controllers
 
             return View();
         }
+
+
     }
 }

@@ -36,6 +36,19 @@ namespace MyDoctorFront.Controllers
                 return View();
             }
         }
+        public async Task<IActionResult> Ara2()
+        {
+            HttpClient Client = _api.Initial();
+            try
+            {
+                var ArticlesList = await Client.GetFromJsonAsync<List<Article>>("api/Article/GetAra2");
+                return View(ArticlesList);
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
+        }
         public async Task<IActionResult> Minihawa2()
         {
             HttpClient Client = _api.Initial();

@@ -91,7 +91,10 @@ namespace MyDoctorAPI.Repository
             {
                 string ImageUrl = string.Empty;
                 //string HostUrl = "https://mydoctorapi121852.azurewebsites.net/";              
-                string HostUrl = "https://localhost:7292";              
+                //string HostUrl = "https://localhost:7292";              
+                //string HostUrl = "http://ayaadelt-001-site1.gtempurl.com/";
+                string HostUrl = "http://newapisforwebsite.tbibti.com/";
+
                 string RawName = ArticleTitle.Replace(" ", "-");
                 string filePath = _environment.WebRootPath + "\\Uploads\\Product\\" + RawName;
                 string imagepath = filePath + "\\ArticleImg.png";
@@ -125,7 +128,15 @@ namespace MyDoctorAPI.Repository
             customContext.SaveChanges();
             return ArticleData;
         }
-
+        public List<Article> GetAra2()
+        {
+            List<Article> ArticlesList = new();
+            using (var customContext = Context.CreateDbContext())
+            {
+                ArticlesList = customContext.Articles.Where(s => (s.ArticleType == "Ara2") && (s.Status == "Approved")).ToList(); ;
+            }
+            return ArticlesList;
+        }
         public List<Article> GetMiniHawa2()
         {
             List<Article> ArticlesList = new();
@@ -134,7 +145,7 @@ namespace MyDoctorAPI.Repository
                 ArticlesList = customContext.Articles.Where(s => (s.ArticleType == "Mini-Hawa") && (s.Status == "Approved")).ToList(); ; 
             }
             return ArticlesList;
-    }
+        }
 
         public List<Article> GetZawagNaks()
         {

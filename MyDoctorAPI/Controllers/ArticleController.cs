@@ -25,6 +25,11 @@ namespace MyDoctorAPI.Controllers
         {
             return ArticleRepo.GetNotApproved();
         }
+        [HttpGet("GetAra2")]
+        public ActionResult<List<Article>> GetAra2()
+        {
+            return ArticleRepo.GetAra2();
+        }
         [HttpGet("GetMiniHawa")]
         public ActionResult<List<Article>> GetMiniHawa()
         {

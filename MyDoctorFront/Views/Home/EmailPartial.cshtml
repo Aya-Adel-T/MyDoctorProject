@@ -11,13 +11,37 @@
 
     <div class="container">
         <div class="section-title">
-            <h2>تواصل معنا</h2>
-            <p>تواصل معنا لاي استفسارات وليصلك كل جديد</p>
+            <h2>ضع الايميل (البريد الالكتروني) الخاص بك ليصلك أخر المقالات </h2>
         </div>
-
+        <div class="col-lg-12">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-12 form-group mt-3 mt-md-0">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="btn btn-info text-center" style="width: 150px;">
+                        <button class="btn btn-transparent" asp-controller="UserEmails" asp-action="Create" type="submit">Add Email</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-   <div class="container">
-
+  
+    <div class="container">
+        <div class="social-links mt-4 d-flex justify-content-center">
+            <a href="https://youtube.com/&#64;tbibty" class="youtube"><i class="bx bxl-youtube bx-lg"></i></a>
+            <a href="https://www.facebook.com/tbibty" class="facebook"><i class="bx bxl-facebook bx-lg"></i></a>
+            <a href="https://www.tiktok.com/&#64;tbibty" class="tiktok"><i class="bx bxl-tiktok bx-lg"></i></a>
+            <a href="https://instagram.com/tbibty" class="instagram"><i class="bx bxl-instagram bx-lg"></i></a>
+            <a href="https://twitter.com/tbibty4" class="twitter"><i class="bx bxl-twitter bx-lg"></i></a>
+            <a href="https://linktw.in/PdKZGl" class="telegram"><i class="bx bxl-telegram bx-lg"></i></a>
+            <a href="https://www.snapchat.com/tbibty4" class="snapchat"><i class="bx bxl-snapchat bx-lg"></i></a>
+            <a href="https://www.linkedin.com/in/tbibty" class="linkedin"><i class="bx bxl-linkedin bx-lg"></i></a>
+            <a href="https://wa.me/201005217612" class="whatsapp"><i class="bx bxl-whatsapp bx-lg"></i></a>
+        </div>
+    </div>
         <div class="row mt-5">
 
             <div class="col-lg-12">
@@ -25,30 +49,23 @@
                     <div class="info-box mt-4">
                         <i class="bx bx-envelope"></i>
                         <h3>Email Us</h3>
-                        <p>Tbibty.Com@gmail.com<</p>
+                        <p>Tbibty.Com@gmail.com</p>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="info-box mt-4">
                         <i class="bx bx-phone-call"></i>
                         <h3>Call Us</h3>
-                        <p>01005217612 </p>
+                    <p>
+                        <strong>Phone:</strong> +201005217612<br>            
+                    </p>
                     </div>
+         
                 </div>
             </div>
 
         </div>
-        <h2> ضع الايميل الخاص بك ليصلك أخر المقالات </h2>
-        <div class="col-lg-12">
-        <form  method="post"  >
-        <div class="row">
-        <div class="col-md-12 form-group mt-3 mt-md-0">
-        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
-        </div>
-        </div>
-       <div class="text-center"><button asp-controller="UserEmails" asp-action="Create" type="submit">Add Email</button></div>
-        </form>
-        </div>
+       
 
         </div>
 

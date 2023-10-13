@@ -57,7 +57,9 @@ namespace MyDoctorAPI.Repository
             {
                 string ImageUrl = string.Empty;
                 //string HostUrl = "https://mydoctorapi121852.azurewebsites.net/";              
-                string HostUrl = "https://localhost:7292";
+                //string HostUrl = "https://localhost:7292";
+               // string HostUrl = "http://ayaadelt-001-site1.gtempurl.com/";
+                string HostUrl = "http://newapisforwebsite.tbibti.com/";
                 string RawName = PictureType.Replace(" ", "-");
                 string filePath = _environment.WebRootPath + "\\Uploads\\PicturesHome\\" + RawName;
                 string imagepath = filePath + "\\ArticleImg.png";

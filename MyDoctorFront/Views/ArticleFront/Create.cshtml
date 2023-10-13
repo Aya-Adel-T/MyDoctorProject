@@ -33,6 +33,7 @@
                     <option value="9-Shohor-Far7a">تسعة شهور فرحة</option>
                     <option value="Wlada-motm2na">ولادة مطمئنة</option>
                     <option value="Nga7k-Ma3-Tabibty">نجاحك مع طبيبتي</option>
+                    <option value="Ara2">أراء وتقييمات</option>
                 </select>
             </div>
             <div class="form-group">
@@ -44,14 +45,25 @@
                 <label asp-for="PublicationDate" class="control-label"></label>
                 <input asp-for="PublicationDate" class="form-control" type="datetime-local"  />
                 <span asp-validation-for="PublicationDate" class="text-danger"></span>
-            </div>
+            </div> 
             <div class="form-group">
-                <label asp-for="WriterID" class="control-label"></label>
-                <select asp-for="WriterID" class="form-control">
-                    <option value="1">First Writer </option>
-                    <option value="2">Dr Reham</option>
+                
+                    <label hidden asp-for="WriterID" class="control-label"></label>
+                @if (User.IsInRole("Admin"))
+                {
+                    <input asp-for="WriterID" value="1" hidden class="form-control" type="text" />
+                }
+                @if (User.IsInRole("Writer"))
+                {
+                    <input asp-for="WriterID" value="2" hidden class="form-control" type="text" />
+
+                }
+                @*   <select asp-for="WriterID" class="form-control">
+                    <option value="2">First Writer </option>
+                    <option value="1">Dr Reham</option>
                   
-                </select>
+                </select>*@
+       
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

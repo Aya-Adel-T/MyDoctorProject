@@ -27,6 +27,10 @@
     </h6>
     @{
         var x = @Html.DisplayFor(model => model.ArticleVideo);
+        //if (x == null)
+        //{
+        //    x = ;
+        //}
     }
     <iframe width="560" height="315" id="myIframe" src=@x title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     @*<a class="btn btn-primary btn-style mt-lg-4 mt-4" asp-action="Index">↩ </a>*@

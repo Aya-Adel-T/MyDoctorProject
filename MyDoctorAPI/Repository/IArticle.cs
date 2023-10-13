@@ -12,6 +12,7 @@ namespace MyDoctorAPI.Repository
         public List<Article> GetNga7kM3Tabibty();
         public List<Article> GetNotApproved();
         public List<Article> GetApproved();
+        public List<Article> GetAra2();
         public void ApproveArticles(int id);
 
 

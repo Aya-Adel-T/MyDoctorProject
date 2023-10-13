@@ -17,6 +17,7 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="row">
+                <a style="text-align:center;font-size:40px" asp-controller="ArticleFront" asp-action="Ara2" class="btn btn-info ">أراء وتقييمات</a>
                 <h2 style="text-align:center">انطلقي في رحلتك</h2>         
                 <div  class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
                     <div style="margin-bottom:15px" class="icon-box" data-aos="fade-up" data-aos-delay="100">
@@ -85,6 +86,9 @@
                     </div>
                     </div>
                 </div>
+
+
+
             </div>
             </div>
         </section><!-- End Featured Services Section -->
@@ -100,20 +104,7 @@
             <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
 
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <h3 style="text-align:center">الدورة الثالثة</h3>
-                            <p>
-                               
-                                انتظرينا في هذه الدورة قريبا
-                          
-                            </p>
-                            <img style="height:200px" src="assets/images/courses/soon.jpg" class="testimonial-img" alt="">
-                            <a asp-controller="Paypal" asp-action="Index" class="btn btn-primary "></a>
-
-                                <span style="margin-left:185px"> </span>
-                        </div>
-                    </div><!-- End testimonial item -->
+                   
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
@@ -125,7 +116,7 @@
                             </p>
                             <img style="height:200px" src="assets/images/courses/course2.jpg" class="testimonial-img" alt="">
                             <a asp-controller="Paypal" asp-action="TshnogMhpli" class="btn btn-primary "> اشتركي الأن</a>
-                            <span style="margin-left:185px"> 45$ </span>
+                            @*<span style="margin-left:185px"> 45$ </span>*@
 
                         </div>
                     </div><!-- End testimonial item -->
@@ -140,7 +131,21 @@
                             </p>
                             <img style="height:200px" src="assets/images/courses/wladamotm2na.png" class="testimonial-img" alt="">
                             <a asp-controller="Paypal" asp-action="Index" class="btn btn-primary ">اشتركي الأن</a>
-                            <span style="margin-left:185px"> 25$ </span>
+                           @* <span style="margin-left:185px"> 25$ </span>*@
+                        </div>
+                    </div><!-- End testimonial item -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <h3 style="text-align:center">الدورة الثالثة</h3>
+                            <p>
+
+                                انتظرينا في هذه الدورة قريبا
+
+                            </p>
+                            <img style="height:200px" src="assets/images/courses/soon.jpg" class="testimonial-img" alt="">
+                            <a asp-controller="Paypal" asp-action="Index" class="btn btn-primary "></a>
+
+                            <span style="margin-left:185px"> </span>
                         </div>
                     </div><!-- End testimonial item -->
 

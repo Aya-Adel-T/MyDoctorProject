@@ -12,7 +12,9 @@
 
             <div class="section-title">
                 <h1>دورة أسرار شفاء التشنج المهبلى اللاإرادى   </h1>
-                <img style="height:30%;width80%" src="~/assets/images/courses/course2.jpg" />
+
+                <center> <iframe class="" style="width:70%;height:600px" id="myIframe" src="https://www.youtube.com/embed/v7nR9VDxoh8?si=kJx_M608U2l4ikPG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></center>
+
                 <p>
                     الكورس يشمل دورة التأهيل لعلاقة زوجية ناجحة ( ليلة الزفاف )
                     و دورة أسرار شفاء التشنج بكل التفاصيل :
@@ -45,19 +47,34 @@
                 </p>
             </div>
             <p id="pay"></p>
+                <style>
+                    .image-container {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                        .image-container img {
+                            max-width: 100%;
+                            height: auto;
+                        }
+                </style>
+
+                <div class="image-container">
+                    <img src="~/assets/images/courses/course2.jpg" alt="Course Image">
+                </div>                
 
         </div>
     </section>
-    <div class="fixedpay">
+@*    <div class="fixedpay">
         <a style="color:white" href="#pay">للحجز باستخدام الفيزا من أي مكان بالعالم اضغط هنا</a>
-    </div>
-    <div class="text-center">
+    </div>*@
+ @*   <div class="text-center">
         <h1 style="text-align:center"> من هنا يمكنك الاشتراك في دورة أسرار شفاء التشنج المهبلى اللاإرادى  </h1>
 
         <div class="paypalbut" id="paypal-button-container"></div>
     </div>
     @section Scripts {
-        @*Use ViewBag.ClientId to load Paypal Javascript SDK*@
         <script src="https://www.paypal.com/sdk/js?client-id=@ViewBag.ClientId"></script>
 
         <script>
@@ -91,5 +108,5 @@
                 }
             }).render('#paypal-button-container');
         </script>
-    }
-    <center> <iframe class="" style="width:70%;height:600px" id="myIframe" src="https://www.youtube.com/embed/v7nR9VDxoh8?si=kJx_M608U2l4ikPG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></center>
+    }*@
+
